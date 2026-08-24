@@ -46,6 +46,6 @@ dashboard can be deployed, but the five-second paper-trading loop cannot be
 kept alive reliably on that plan. Use a VPS or a worker-capable service for
 that process.
 
-The dashboard only displays rows after the paper position exits. Allow at least
-20 to 25 minutes after starting `main.py` before expecting a new completed row
-in `trades.csv`.
+The dashboard displays active paper entries immediately from `active_trade.json`
+and completed rows after the position exits. Allow at least 20 to 25 minutes
+after starting `main.py` before expecting a new completed row in `trades.csv`.

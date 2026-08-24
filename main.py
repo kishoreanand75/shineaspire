@@ -222,6 +222,7 @@ def run_bitcoin_bot():
                     signal_confidence=trade_candidate.get("Confidence"),
                     signal_reason=trade_candidate.get("Signal_Reason", ""),
                     market_context=trade_candidate.get("Market_Context", {}),
+                    entry_candle_time=trade_candidate.get("Candle_Time"),
                 )
                 last_entry_candle = signal_candle
                 if scheduled_entry:
@@ -231,9 +232,20 @@ def run_bitcoin_bot():
                 market = next((item for item in all_results if item.get("Symbol") == "BTCUSDT"), None)
                 if market:
                     position["last_stock_price"] = float(market["Price"])
+                    position["exit_candle_time"] = market.get("Candle_Time")
                     stock_change = float(market["Price"]) - float(position.get("entry_stock_price", market["Price"]))
                     premium_change = stock_change * 0.5 if position["type"] == "CALL" else -stock_change * 0.5
                     broker.update_market_price(open_symbol, max(1.0, round(position["entry_price"] + premium_change, 2)))
+                    if open_symbol in broker.positions:
+                        position = broker.positions[open_symbol]
+                        position["current_candle_time"] = market.get("Candle_Time", "")
+                        position["current_price"] = float(market["Price"])
+                        position["unrealized_pnl"] = round(
+                            stock_change * float(position.get("qty", 0.0))
+                            * (1 if position["type"] == "CALL" else -1),
+                            2,
+                        )
+                        broker._update_active_json()
 
             print(f"\r[SCANNING] {summary_str} | paper_open:{len(broker.positions)} predictions pending:{tracker_state['pending']} resolved:{tracker_state['resolved']} training:{training_status}", end="")
 

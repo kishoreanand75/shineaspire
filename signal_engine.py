@@ -312,6 +312,11 @@ def decide_from_row(df_feat: pd.DataFrame, i: int, asset_symbol: str = "", model
         try:
             features = pd.DataFrame([{col: last_row[col] for col in FEATURE_COLUMNS}]).fillna(0)
             probs = model.predict_proba(features)[0]
+            probability_fields = {
+                "put_probability": round(float(probs[0]), 6),
+                "hold_probability": round(float(probs[1]), 6),
+                "call_probability": round(float(probs[2]), 6),
+            }
             pred = int(np.argmax(probs))
             confidence = float(np.max(probs))
 
@@ -330,11 +335,11 @@ def decide_from_row(df_feat: pd.DataFrame, i: int, asset_symbol: str = "", model
             if REQUIRE_HTF_ALIGNMENT and resolved_htf_trend == "BEARISH" and pred == 2:
                 return {"signal": "HOLD", "confidence": round(confidence, 3), "confidence_source": "MODEL",
                         "reason": f"BUY rejected: 1H HTF trend is BEARISH (model wanted CALL, confidence {confidence:.2f})",
-                        "blocked_by": "htf_misalignment", "htf_trend": resolved_htf_trend}
+                        "blocked_by": "htf_misalignment", "htf_trend": resolved_htf_trend, **probability_fields}
             if REQUIRE_HTF_ALIGNMENT and resolved_htf_trend == "BULLISH" and pred == 0:
                 return {"signal": "HOLD", "confidence": round(confidence, 3), "confidence_source": "MODEL",
                         "reason": f"SELL rejected: 1H HTF trend is BULLISH (model wanted PUT, confidence {confidence:.2f})",
-                        "blocked_by": "htf_misalignment", "htf_trend": resolved_htf_trend}
+                        "blocked_by": "htf_misalignment", "htf_trend": resolved_htf_trend, **probability_fields}
 
             # A high model score is not enough: the predicted direction must
             # agree with the independent price-structure filters AND the HTF trend.
@@ -355,7 +360,7 @@ def decide_from_row(df_feat: pd.DataFrame, i: int, asset_symbol: str = "", model
                         return {"signal": signal, "confidence": round(confidence, 3),
                                 "confidence_source": "PAPER_EXPERIMENTAL",
                                 "reason": f"Paper experiment: directional probability {confidence:.2f}; strict filter status body={body_ratio:.2f}, ADX={last_row['ADX']:.1f}, HTF={resolved_htf_trend}",
-                                "blocked_by": None, "htf_trend": resolved_htf_trend, **levels}
+                                "blocked_by": None, "htf_trend": resolved_htf_trend, **levels, **probability_fields}
             if confidence >= required_confidence and (
                 (pred == 2 and bullish_structure and htf_allows_buy) or
                 (pred == 0 and bearish_structure and htf_allows_sell)
@@ -364,22 +369,22 @@ def decide_from_row(df_feat: pd.DataFrame, i: int, asset_symbol: str = "", model
                 levels = compute_atr_risk_levels(last_row, signal)
                 return {"signal": signal, "confidence": round(confidence, 3), "confidence_source": "MODEL",
                         "reason": f"Model pred={pred} confidence={confidence:.2f} (ADX {last_row['ADX']:.1f}, body {body_ratio:.2f}, HTF {resolved_htf_trend})",
-                        "blocked_by": None, "htf_trend": resolved_htf_trend, **levels}
+                        "blocked_by": None, "htf_trend": resolved_htf_trend, **levels, **probability_fields}
 
             if PAPER_RULE_FALLBACK and confidence >= required_confidence:
                 if vwap_diff > 0 and ema9 > ema21 and last_row['Close'] > last_row['Open'] and htf_allows_buy:
                     levels = compute_atr_risk_levels(last_row, "BUY_CALL")
                     return {"signal": "BUY_CALL", "confidence": round(confidence, 3), "confidence_source": "RULE_FALLBACK",
                             "reason": f"Model HOLD fallback: bullish VWAP/EMA/candle alignment ({confidence:.2f} confidence, HTF {resolved_htf_trend})",
-                            "blocked_by": None, "htf_trend": resolved_htf_trend, **levels}
+                            "blocked_by": None, "htf_trend": resolved_htf_trend, **levels, **probability_fields}
                 if vwap_diff < 0 and ema9 < ema21 and last_row['Close'] < last_row['Open'] and htf_allows_sell:
                     levels = compute_atr_risk_levels(last_row, "BUY_PUT")
                     return {"signal": "BUY_PUT", "confidence": round(confidence, 3), "confidence_source": "RULE_FALLBACK",
                             "reason": f"Model HOLD fallback: bearish VWAP/EMA/candle alignment ({confidence:.2f} confidence, HTF {resolved_htf_trend})",
-                            "blocked_by": None, "htf_trend": resolved_htf_trend, **levels}
+                            "blocked_by": None, "htf_trend": resolved_htf_trend, **levels, **probability_fields}
             return {"signal": "HOLD", "confidence": round(confidence, 3), "confidence_source": "MODEL",
                     "reason": f"Model confidence {confidence:.2f} below {required_confidence:.2f} threshold or predicted HOLD",
-                    "blocked_by": "low_confidence", "htf_trend": resolved_htf_trend}
+                    "blocked_by": "low_confidence", "htf_trend": resolved_htf_trend, **probability_fields}
         except Exception as e:
             # Fall through to rule-based path below if model scoring fails,
             # but say so explicitly -- never silently swap logic.

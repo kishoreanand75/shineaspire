@@ -14,7 +14,7 @@ import trade_logger
 logger = logging.getLogger(__name__)
 from xgboost import XGBClassifier
 from notifier import send_telegram_alert, send_formatted_signal_alert
-from signal_engine import compute_atr_risk_levels, generate_signal as _engine_generate_signal
+from signal_engine import FEATURE_COLUMNS, build_features, compute_atr_risk_levels, generate_signal as _engine_generate_signal
 
 MODEL_FILE = "xgboost_model.json"
 model = None
@@ -414,6 +414,26 @@ def scan_all_assets():
             # divergence before.
             engine_result = _engine_generate_signal(df.iloc[:-1], asset_symbol=symbol, model=model)
             signal = engine_result["signal"]
+            probability_fields = {
+                "PUT_Probability": None,
+                "HOLD_Probability": None,
+                "CALL_Probability": None,
+            }
+            if model is not None:
+                try:
+                    model_features = build_features(df.iloc[:-1]).iloc[-1]
+                    model_names = getattr(model, "feature_names_in_", FEATURE_COLUMNS)
+                    feature_values = pd.DataFrame([
+                        {column: model_features[column] for column in model_names}
+                    ]).fillna(0)
+                    probabilities = model.predict_proba(feature_values)[0]
+                    probability_fields = {
+                        "PUT_Probability": float(probabilities[0]),
+                        "HOLD_Probability": float(probabilities[1]),
+                        "CALL_Probability": float(probabilities[2]),
+                    }
+                except Exception:
+                    pass
 
             # Liquidity Sweep Boost stays here (asset-specific PDH/PDL context
             # that generate_signal() doesn't have) -- can upgrade a HOLD-level
@@ -477,6 +497,7 @@ def scan_all_assets():
                 "Timeframe": config.TRADE_TIMEFRAME, "Candle_Time": str(df.index[-2]),
                 "Entry_Window": "1-4 minutes after candle close",
                 "Confidence": engine_result.get("confidence"),
+                **probability_fields,
                 "Confidence_Source": engine_result.get("confidence_source", ""),
                 "Entry_Price": engine_result.get("entry_price"),
                 "Stop_Loss": engine_result.get("stop_loss"),
@@ -497,6 +518,7 @@ def scan_all_assets():
                     "Name": name, "Symbol": symbol, "Price": latest['Close'], "Signal": signal,
                     "Candle_Time": str(df.index[-2]),
                     "Confidence": engine_result.get("confidence"),
+                    **probability_fields,
                     "Confidence_Source": engine_result.get("confidence_source", ""),
                     "Entry_Price": engine_result.get("entry_price"),
                     "Stop_Loss": engine_result.get("stop_loss"),

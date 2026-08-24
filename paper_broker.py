@@ -273,7 +273,7 @@ class PaperBroker:
 
     def _init_csv(self):
         columns = [
-            "Trade_ID", "Entry_Date", "Entry_Time", "Exit_Date", "Exit_Time", "Duration_Minutes",
+            "Trade_ID", "Entry_Time", "Entry_Candle_Time", "Exit_Time", "Exit_Candle_Time", "Duration_Minutes",
             "Symbol", "Direction", "Entry_Price", "Exit_Price", "Stop_Loss", "Take_Profit", "Premium_Entry_Price", "Premium_Exit_Price", "Premium_Stop_Loss", "Premium_Take_Profit",
             "Quantity", "Exit_Reason", "Outcome", "Gross_PnL", "Brokerage_Taxes", "Net_PnL",
             "Capital_Balance", "AI_Confidence", "Signal_Reason", "Post_Mortem", "Market_Context",
@@ -367,7 +367,7 @@ class PaperBroker:
         self._update_active_json()
 
     def buy_option(self, symbol, option_type, entry_price, stock_price=0.0, qty=None, stop_loss_pct=0.15, target_pct=0.30,
-                   signal_confidence=None, signal_reason="", market_context=None):
+                   signal_confidence=None, signal_reason="", market_context=None, entry_candle_time=None):
         if self.daily_trades_count >= self.max_trades_per_day:
             print(f"\n[RISK GUARD] 🚫 Max Trades Limit ({self.max_trades_per_day}) reached for today.")
             return
@@ -410,6 +410,7 @@ class PaperBroker:
         self.positions[symbol] = {
             "trade_id": trade_id,
             "entry_time": now_str,
+            "entry_candle_time": entry_candle_time or now_str,
             "symbol": symbol,
             "type": option_type,
             "entry_price": round(entry_price, 2),
@@ -549,17 +550,17 @@ class PaperBroker:
         trade_id = pos.get("trade_id", datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%d%H%M%S%f"))
         with open(CSV_FILE, mode="a", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=[
-                "Trade_ID", "Entry_Date", "Entry_Time", "Exit_Date", "Exit_Time", "Duration_Minutes",
+                "Trade_ID", "Entry_Time", "Entry_Candle_Time", "Exit_Time", "Exit_Candle_Time", "Duration_Minutes",
                 "Symbol", "Direction", "Entry_Price", "Exit_Price", "Stop_Loss", "Take_Profit", "Premium_Entry_Price", "Premium_Exit_Price", "Premium_Stop_Loss", "Premium_Take_Profit",
                 "Quantity", "Exit_Reason", "Outcome", "Gross_PnL", "Brokerage_Taxes", "Net_PnL",
                 "Capital_Balance", "AI_Confidence", "Signal_Reason", "Post_Mortem", "Market_Context",
             ])
             writer.writerow({
                 "Trade_ID": trade_id,
-                "Entry_Date": entry_time.strftime("%Y-%m-%d") if entry_time else "",
                 "Entry_Time": pos["entry_time"],
-                "Exit_Date": exit_time.strftime("%Y-%m-%d") if exit_time else "",
+                "Entry_Candle_Time": pos.get("entry_candle_time", ""),
                 "Exit_Time": exit_time_str,
+                "Exit_Candle_Time": pos.get("exit_candle_time", ""),
                 "Duration_Minutes": f"{duration_minutes:.2f}" if duration_minutes is not None else "",
                 "Symbol": pos["symbol"], "Direction": pos["type"],
                 "Entry_Price": f"{pos.get('entry_stock_price', pos['entry_price']):.2f}",

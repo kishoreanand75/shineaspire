@@ -11,7 +11,7 @@ PENDING_FILE = "pending_predictions.json"
 MAX_HOLD_MINUTES = 100
 FIELDS = [
     "Prediction_ID", "Signal_Date", "Signal_Time", "Candle_Time", "Symbol", "Direction",
-    "Entry_Price", "Stop_Loss", "Take_Profit", "AI_Confidence", "HTF_Trend",
+    "Entry_Price", "Stop_Loss", "Take_Profit", "AI_Confidence", "PUT_Probability", "HOLD_Probability", "CALL_Probability", "HTF_Trend",
     "Signal_Reason", "Status", "Outcome", "Resolved_Date", "Resolved_Time",
     "Duration_Minutes", "Outcome_Reason", "Exit_Price",
 ]
@@ -149,6 +149,9 @@ def process_scan_results(results):
                 "Entry_Price": result.get("Candle_Close", result.get("Price", "")),
                 "Stop_Loss": "", "Take_Profit": "",
                 "AI_Confidence": result.get("Confidence"),
+                "PUT_Probability": result.get("PUT_Probability"),
+                "HOLD_Probability": result.get("HOLD_Probability"),
+                "CALL_Probability": result.get("CALL_Probability"),
                 "HTF_Trend": result.get("HTF_Trend", "UNKNOWN"),
                 "Signal_Reason": result.get("Signal_Reason", "No directional setup"),
                 "Status": "NO_TRADE", "Outcome": "NO_SIGNAL",
@@ -174,6 +177,8 @@ def process_scan_results(results):
             "Direction": signal, "Entry_Price": result["Entry_Price"],
             "Stop_Loss": result["Stop_Loss"], "Take_Profit": result["Take_Profit"],
             "AI_Confidence": result.get("Confidence"), "HTF_Trend": result.get("HTF_Trend", "UNKNOWN"),
+            "PUT_Probability": result.get("PUT_Probability"), "HOLD_Probability": result.get("HOLD_Probability"),
+            "CALL_Probability": result.get("CALL_Probability"),
             "Signal_Reason": result.get("Signal_Reason", ""), "Status": "PENDING", "Outcome": "",
             "Resolved_Date": "", "Resolved_Time": "", "Duration_Minutes": "",
             "Outcome_Reason": "", "Exit_Price": "",

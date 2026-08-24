@@ -42,6 +42,69 @@ def load_active_positions():
     except (OSError, TypeError, ValueError):
         return {}
 
+
+def normalize_trade_rows(trades):
+    """Repair rows written by the older date-inclusive CSV schema."""
+    if trades.empty:
+        return trades
+    trades = trades.astype(object)
+    malformed = (
+        trades.get("Entry_Candle_Time", pd.Series(index=trades.index, dtype="object"))
+        .astype(str).str.match(r"^\d{4}-\d{2}-\d{2}$")
+        & trades.get("Exit_Time", pd.Series(index=trades.index, dtype="object"))
+        .astype(str).str.match(r"^\d+(\.\d+)?$")
+        & trades.get("Exit_Candle_Time", pd.Series(index=trades.index, dtype="object"))
+        .astype(str).str.startswith("BTCUSDT_OPT_")
+    )
+    for index in trades.index[malformed]:
+        row = trades.loc[index].to_dict()
+        normalized = {
+            "Trade_ID": row.get("Trade_ID", ""),
+            "Entry_Time": row.get("Entry_Time", ""),
+            "Entry_Candle_Time": "",
+            "Exit_Time": "",
+            "Exit_Candle_Time": "",
+            "Duration_Minutes": row.get("Exit_Time", ""),
+            "Symbol": row.get("Exit_Candle_Time", ""),
+            "Direction": row.get("Duration_Minutes", ""),
+            "Entry_Price": row.get("Symbol", ""),
+            "Exit_Price": row.get("Direction", ""),
+            "Stop_Loss": row.get("Entry_Price", ""),
+            "Take_Profit": row.get("Exit_Price", ""),
+            "Premium_Entry_Price": row.get("Stop_Loss", ""),
+            "Premium_Exit_Price": row.get("Take_Profit", ""),
+            "Premium_Stop_Loss": row.get("Premium_Entry_Price", ""),
+            "Premium_Take_Profit": row.get("Premium_Exit_Price", ""),
+            "Quantity": row.get("Premium_Stop_Loss", ""),
+            "Exit_Reason": row.get("Premium_Take_Profit", ""),
+            "Outcome": row.get("Quantity", ""),
+            "Gross_PnL": row.get("Exit_Reason", ""),
+            "Brokerage_Taxes": row.get("Outcome", ""),
+            "Net_PnL": row.get("Gross_PnL", ""),
+            "Capital_Balance": row.get("Brokerage_Taxes", ""),
+            "AI_Confidence": row.get("Net_PnL", ""),
+            "Signal_Reason": row.get("Capital_Balance", ""),
+            "Post_Mortem": row.get("AI_Confidence", ""),
+            "Market_Context": row.get("Signal_Reason", ""),
+        }
+        for column, value in normalized.items():
+            trades.at[index, column] = str(value) if value is not None else ""
+    return trades
+
+
+def display_candle_time(value, fallback_time=""):
+    """Show candle timestamps in the same IST timezone as trade timestamps."""
+    candidate = value
+    if candidate in (None, "", "nan", "NaT") and fallback_time not in (None, "", "nan", "NaT"):
+        local_time = pd.to_datetime(fallback_time, errors="coerce")
+        if pd.notna(local_time):
+            candidate = local_time.floor("5min") - pd.Timedelta(minutes=5)
+            return candidate.strftime("%Y-%m-%d %H:%M:%S IST")
+    parsed = pd.to_datetime(candidate, errors="coerce", utc=True)
+    if pd.isna(parsed):
+        return "--"
+    return parsed.tz_convert("Asia/Kolkata").strftime("%Y-%m-%d %H:%M:%S IST")
+
 # ================================================================================
 # PAGE SETUP
 # ================================================================================
@@ -446,7 +509,64 @@ if trades_path.exists():
 else:
     completed_trades = pd.DataFrame()
 
-if not completed_trades.empty:
+active_rows = []
+for active_symbol, position in load_active_positions().items():
+    active_rows.append({
+        "Trade_ID": position.get("trade_id", active_symbol),
+        "Entry_Time": position.get("entry_time", ""),
+        "Exit_Time": "",
+        "Entry_Candle_Time": display_candle_time(
+            position.get("entry_candle_time", ""), position.get("entry_time", "")
+        ),
+        "Exit_Candle_Time": display_candle_time(position.get("exit_candle_time", "")),
+        "Current_Candle_Time": display_candle_time(
+            position.get("current_candle_time", position.get("exit_candle_time", "")),
+            position.get("entry_time", ""),
+        ),
+        "Current_Price": position.get("current_price", position.get("last_stock_price", "")),
+        "Unrealized_PnL": position.get("unrealized_pnl", ""),
+        "Duration_Minutes": "ACTIVE",
+        "Symbol": active_symbol,
+        "Direction": position.get("type", ""),
+        "Entry_Price": position.get("entry_stock_price", position.get("entry_price", "")),
+        "Exit_Price": "",
+        "Stop_Loss": position.get("sl_stock_price", position.get("stop_loss", "")),
+        "Take_Profit": position.get("target_stock_price", position.get("target", "")),
+        "Premium_Entry_Price": position.get("entry_price", ""),
+        "Premium_Exit_Price": "",
+        "Premium_Stop_Loss": position.get("stop_loss", ""),
+        "Premium_Take_Profit": position.get("target", ""),
+        "Quantity": position.get("qty", ""),
+        "Exit_Reason": "ACTIVE",
+        "Outcome": "PENDING",
+        "Gross_PnL": "",
+        "Brokerage_Taxes": "",
+        "Net_PnL": "",
+        "Capital_Balance": "",
+        "AI_Confidence": position.get("signal_confidence", ""),
+        "Signal_Reason": position.get("signal_reason", ""),
+        "Post_Mortem": "",
+        "Market_Context": position.get("market_context", ""),
+    })
+
+if not completed_trades.empty or active_rows:
+    table_columns = [
+        "Trade_ID", "Entry_Time", "Entry_Candle_Time", "Exit_Time", "Exit_Candle_Time", "Current_Candle_Time", "Current_Price", "Unrealized_PnL", "Duration_Minutes",
+        "Symbol", "Direction", "Entry_Price", "Exit_Price", "Stop_Loss", "Take_Profit",
+        "Premium_Entry_Price", "Premium_Exit_Price", "Premium_Stop_Loss", "Premium_Take_Profit",
+        "Quantity", "Exit_Reason", "Outcome", "Gross_PnL", "Brokerage_Taxes", "Net_PnL",
+        "Capital_Balance", "AI_Confidence", "Signal_Reason", "Post_Mortem", "Market_Context",
+    ]
+    completed_trades = completed_trades.drop(columns=["Entry_Date", "Exit_Date"], errors="ignore")
+    completed_trades = normalize_trade_rows(completed_trades)
+    completed_trades = completed_trades.reindex(columns=table_columns, fill_value="")
+    for index in completed_trades.index:
+        completed_trades.at[index, "Entry_Candle_Time"] = display_candle_time(
+            completed_trades.at[index, "Entry_Candle_Time"], completed_trades.at[index, "Entry_Time"]
+        )
+        completed_trades.at[index, "Exit_Candle_Time"] = display_candle_time(
+            completed_trades.at[index, "Exit_Candle_Time"], completed_trades.at[index, "Exit_Time"]
+        )
     if "Trade_ID" in completed_trades:
         completed_trades["Trade_ID"] = completed_trades["Trade_ID"].astype("string")
     for column in ("Gross_PnL", "Brokerage_Taxes", "Net_PnL", "Capital_Balance"):
@@ -455,22 +575,52 @@ if not completed_trades.empty:
                 completed_trades[column].astype(str).str.replace(r"[^0-9.\-]", "", regex=True),
                 errors="coerce",
             )
-    net_total = float(completed_trades.get("Net_PnL", pd.Series(dtype=float)).fillna(0).sum())
-    last_capital = float(completed_trades.get("Capital_Balance", pd.Series([fixed_starting_capital])).iloc[-1])
-    wins = int((completed_trades.get("Net_PnL", pd.Series(dtype=float)) > 0).sum())
-    total = len(completed_trades)
+    completed_metrics = completed_trades[
+        pd.to_numeric(completed_trades.get("Capital_Balance", pd.Series(dtype=float)), errors="coerce").notna()
+    ]
+    net_total = float(completed_metrics.get("Net_PnL", pd.Series(dtype=float)).fillna(0).sum())
+    capital_values = completed_metrics.get("Capital_Balance", pd.Series(dtype=float)).dropna()
+    last_capital = float(capital_values.iloc[-1]) if not capital_values.empty else fixed_starting_capital
+    wins = int((completed_metrics.get("Net_PnL", pd.Series(dtype=float)) > 0).sum())
+    total = len(completed_metrics)
     metric_a, metric_b, metric_c, metric_d = st.columns(4)
     metric_a.metric("Fixed Starting Capital", f"${fixed_starting_capital:,.2f}")
     metric_b.metric("Current Paper Capital", f"${last_capital:,.2f}")
     metric_c.metric("Net P&L", f"${net_total:+,.2f}")
     metric_d.metric("Win Rate", f"{(wins / total * 100) if total else 0:.1f}%")
+    active_table = pd.DataFrame(active_rows).reindex(columns=table_columns, fill_value="")
+    table_data = pd.concat([completed_trades, active_table], ignore_index=True) if active_rows else completed_trades
+    table_data.insert(1, "Status", "COMPLETED")
+    if active_rows:
+        table_data.loc[len(completed_trades):, "Status"] = "ACTIVE"
+    display_columns = [
+        "Trade_ID", "Status", "Entry_Time", "Entry_Candle_Time", "Current_Candle_Time", "Current_Price",
+        "Unrealized_PnL", "Exit_Time", "Exit_Candle_Time", "Duration_Minutes", "Symbol", "Direction",
+        "Entry_Price", "Exit_Price", "Stop_Loss", "Take_Profit", "Outcome", "AI_Confidence",
+        "Premium_Entry_Price", "Premium_Exit_Price", "Premium_Stop_Loss", "Premium_Take_Profit",
+        "Quantity", "Exit_Reason", "Gross_PnL", "Brokerage_Taxes", "Net_PnL", "Capital_Balance",
+        "Signal_Reason", "Post_Mortem", "Market_Context",
+    ]
+    table_data = table_data.reindex(columns=display_columns, fill_value="")
+    table_data = table_data.replace({None: "--", "": "--"}).fillna("--")
+
+    def style_trade_value(value):
+        if value == "WIN":
+            return "color: #17C964; font-weight: 700"
+        if value == "LOSS":
+            return "color: #F5455C; font-weight: 700"
+        if value in ("PENDING", "ACTIVE"):
+            return "color: #FBBF24; font-weight: 700"
+        return ""
+
+    styled_table = table_data.style.map(style_trade_value, subset=["Status", "Outcome"])
     if st.session_state.get("hide_completed_trade_table", False):
         st.info("Completed trade table hidden for this dashboard session. CSV and bot memory are unchanged.")
         if st.button("Show Saved Trade Table", key="show_completed_trade_table"):
             st.session_state["hide_completed_trade_table"] = False
             st.rerun()
     else:
-        st.dataframe(completed_trades, use_container_width=True, hide_index=True)
+        st.dataframe(styled_table, use_container_width=True, hide_index=True)
     st.download_button(
         "Download Completed Trade History (CSV)",
         data=trades_path.read_bytes(),
@@ -489,6 +639,58 @@ weekly_a.metric("Directional Predictions", weekly_signals["signals"])
 weekly_b.metric("Resolved Predictions", weekly_predictions["predictions"])
 weekly_c.metric("Prediction Win Rate", f"{weekly_predictions['win_rate']:.1f}%")
 weekly_d.metric("Pending Predictions", weekly_predictions["pending"])
+
+st.markdown("<div class='sec-label'>NEXT-CANDLE PREDICTIONS VS ACTUAL RESULTS</div>", unsafe_allow_html=True)
+prediction_path = Path(prediction_tracker.CSV_FILE)
+if prediction_path.exists() and prediction_path.stat().st_size:
+    try:
+        prediction_table = pd.read_csv(prediction_path, dtype=str).tail(100).iloc[::-1].copy()
+    except (OSError, pd.errors.EmptyDataError, pd.errors.ParserError):
+        prediction_table = pd.DataFrame()
+else:
+    prediction_table = pd.DataFrame()
+
+if not prediction_table.empty:
+    for probability_column in ("PUT_Probability", "HOLD_Probability", "CALL_Probability"):
+        if probability_column not in prediction_table.columns:
+            prediction_table[probability_column] = ""
+    prediction_table["Prediction"] = prediction_table["Direction"].map({
+        "BUY_CALL": "CALL",
+        "BUY_PUT": "PUT",
+        "HOLD": "NO DIRECTION",
+    }).fillna(prediction_table["Direction"])
+    call_mask = prediction_table["Direction"] == "BUY_CALL"
+    put_mask = prediction_table["Direction"] == "BUY_PUT"
+    call_probability = pd.to_numeric(prediction_table["CALL_Probability"], errors="coerce") * 100
+    put_probability = pd.to_numeric(prediction_table["PUT_Probability"], errors="coerce") * 100
+    prediction_table["Predicted_Win_%"] = "--"
+    prediction_table["Predicted_Loss_%"] = "--"
+    prediction_table.loc[call_mask, "Predicted_Win_%"] = call_probability[call_mask].map(
+        lambda value: f"{value:.1f}%" if pd.notna(value) else "--"
+    )
+    prediction_table.loc[call_mask, "Predicted_Loss_%"] = put_probability[call_mask].map(
+        lambda value: f"{value:.1f}%" if pd.notna(value) else "--"
+    )
+    prediction_table.loc[put_mask, "Predicted_Win_%"] = put_probability[put_mask].map(
+        lambda value: f"{value:.1f}%" if pd.notna(value) else "--"
+    )
+    prediction_table.loc[put_mask, "Predicted_Loss_%"] = call_probability[put_mask].map(
+        lambda value: f"{value:.1f}%" if pd.notna(value) else "--"
+    )
+    prediction_display = prediction_table.rename(columns={
+        "Candle_Time": "Candle Time",
+        "Status": "Prediction Status",
+        "Outcome": "Actual Outcome",
+        "Exit_Price": "Actual Close/Exit",
+        "Resolved_Time": "Actual Result Time",
+    }).reindex(columns=[
+        "Candle Time", "Prediction", "Predicted_Win_%", "Predicted_Loss_%",
+        "Prediction Status", "Actual Outcome", "Actual Close/Exit", "Actual Result Time",
+    ], fill_value="--")
+    prediction_display = prediction_display.replace({None: "--", "nan": "--"}).fillna("--")
+    st.dataframe(prediction_display, use_container_width=True, hide_index=True)
+else:
+    st.info("No next-candle prediction records yet. The table will populate after the next completed 5-minute candle.")
 
 # ================================================================================
 # SIDEBAR -- asset-agnostic controls kept from the original dashboard
