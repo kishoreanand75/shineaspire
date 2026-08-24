@@ -943,5 +943,14 @@
     "confidence": 0.322,
     "reason": "Paper experiment: directional probability 0.32; strict filter status body=0.23, ADX=36.1, HTF=BULLISH",
     "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T12:41:05.811278+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 12:35:00",
+    "signal": "HOLD",
+    "confidence": 0.301,
+    "reason": "Model confidence 0.30 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
   }
 ]
