@@ -6,17 +6,20 @@
 #
 # Usage:  python diagnose_confidence.py
 
-import yfinance as yf
 import pandas as pd
 import numpy as np
 from xgboost import XGBClassifier
 import config
+import data_feed
 from signal_engine import build_features, FEATURE_COLUMNS
 
 print(f"Fetching {config.DEFAULT_SYMBOL} ({config.TIMEFRAME}, 60 days)...")
-df = yf.download(tickers=config.DEFAULT_SYMBOL, period="60d", interval=config.TIMEFRAME, progress=False)
-if isinstance(df.columns, pd.MultiIndex):
-    df.columns = [c[0] for c in df.columns]
+df = data_feed.fetch_btc_historical_data(
+    config.DEFAULT_SYMBOL, config.TIMEFRAME, days=60
+)
+df = df.rename(columns={column: column.title() for column in df.columns})
+if df.empty:
+    raise RuntimeError("No historical candles returned; cannot diagnose confidence.")
 df.dropna(inplace=True)
 print(f"Got {len(df)} bars.")
 
@@ -39,6 +42,9 @@ for i in range(25, len(df_feat)):
 
 confidences = np.array(confidences)
 preds = np.array(preds)
+
+if len(confidences) == 0:
+    raise RuntimeError("No bars could be scored; cannot diagnose confidence.")
 
 print("\n=== MODEL CONFIDENCE DISTRIBUTION ===")
 print(f"  bars scored:     {len(confidences)}")

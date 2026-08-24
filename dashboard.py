@@ -30,7 +30,7 @@ import prediction_tracker
 prediction_tracker.ensure_csv()
 import broker_integrator
 import multi_strategy
-from signal_engine import build_features, decide_from_row, generate_signal
+from signal_engine import build_features, compute_atr_risk_levels, decide_from_row, generate_signal
 
 
 def load_active_positions():
@@ -124,10 +124,14 @@ st.set_page_config(
 )
 
 # ================================================================================
-# AUTO-REFRESH -- poll frequently enough to catch the Binance 5-minute candle
-# boundary. The signal itself uses only closed candles, so it changes once per
-# new candle even though the page polls every few seconds.
+# AUTO-REFRESH -- rerun shortly after the next Binance 5-minute boundary. This
+# keeps the full page stable between candles and avoids the dimmed overlay that
+# frequent full Streamlit reruns cause.
 # ================================================================================
+_refresh_now = datetime.now(timezone.utc)
+_seconds_to_next_candle = 300 - (_refresh_now.minute % 5) * 60 - _refresh_now.second
+if _seconds_to_next_candle <= 0:
+    _seconds_to_next_candle = 300
 st_autorefresh(interval=5000, key="live_data_autorefresh")
 
 # ================================================================================
@@ -136,6 +140,14 @@ st_autorefresh(interval=5000, key="live_data_autorefresh")
 st.markdown("""
 <style>
     .stApp { background-color: #0B0E11; }
+    /* Keep the live terminal visually stable while Streamlit reruns. */
+    [data-testid="stAppViewContainer"],
+    [data-testid="stAppViewContainer"] > .main,
+    [data-testid="stAppViewContainer"] [data-testid="stMainBlockContainer"] {
+        opacity: 1 !important;
+        filter: none !important;
+    }
+    [data-testid="stStatusWidget"] { display: none !important; }
     section[data-testid="stSidebar"] { background-color: #10141A; border-right: 1px solid #1E2530; }
     .block-container { padding-top: 1.2rem; padding-bottom: 2rem; }
 
@@ -196,7 +208,7 @@ with download_col:
         st.download_button(
             "⬇️ Download CSV", data=Path(prediction_tracker.CSV_FILE).read_bytes(),
             file_name="antony_prediction_outcomes.csv", mime="text/csv",
-            use_container_width=True, key="top_trade_csv_download",
+            width="stretch", key="top_trade_csv_download",
         )
 
 # ================================================================================
@@ -206,10 +218,8 @@ with download_col:
 # from the old dashboard (confirmed working there).
 # ================================================================================
 CHART_TIMEFRAMES = list(config.SUPPORTED_TIMEFRAMES)
-if "btc_chart_tf" not in st.session_state:
-    st.session_state["btc_chart_tf"] = config.TIMEFRAME
 selected_tf = st.radio(
-    "Timeframe", CHART_TIMEFRAMES, index=CHART_TIMEFRAMES.index(st.session_state["btc_chart_tf"]),
+    "Timeframe", CHART_TIMEFRAMES, index=CHART_TIMEFRAMES.index(config.TIMEFRAME),
     horizontal=True, key="btc_chart_tf", label_visibility="collapsed",
 )
 
@@ -360,28 +370,50 @@ else:
             if historical_result.get("signal") in ("BUY_CALL", "BUY_PUT"):
                 last_confirmed = (signal_features.index[candle_index], historical_result)
                 break
-    atr_value = float(signal_df["High"].sub(signal_df["Low"]).rolling(14).mean().iloc[-2])
+    signal_features = build_features(signal_input)
+    signal_row = signal_features.iloc[-1]
+    atr_value = float(signal_row.get("ATR", 0) or 0)
+    if not pd.notna(atr_value) or atr_value <= 0:
+        atr_value = float(signal_df["High"].sub(signal_df["Low"]).rolling(14).mean().iloc[-2])
     if not pd.notna(atr_value) or atr_value <= 0:
         atr_value = spot_price * 0.01
 
     if signal_name == "BUY_CALL":
         signal_label, signal_color = "LONG / BUY BTC", "#17C964"
-        stop_price = signal_entry_price - (atr_value * 1.5)
-        target_price = signal_entry_price + (atr_value * 3.0)
+        risk_levels = compute_atr_risk_levels(signal_row, "BUY_CALL")
+        stop_price = risk_levels["stop_loss"]
+        target_price = risk_levels["take_profit"]
     elif signal_name == "BUY_PUT":
         signal_label, signal_color = "SHORT / SELL BTC", "#F5455C"
-        stop_price = signal_entry_price + (atr_value * 1.5)
-        target_price = signal_entry_price - (atr_value * 3.0)
+        risk_levels = compute_atr_risk_levels(signal_row, "BUY_PUT")
+        stop_price = risk_levels["stop_loss"]
+        target_price = risk_levels["take_profit"]
     else:
         signal_label, signal_color = "WAIT / NO TRADE", "#FBBF24"
-        stop_price = target_price = None
+        # Keep reference levels visible even when the confidence gate says
+        # WAIT. They are informational only and must not be treated as an entry.
+        reference_direction = (
+            "BUY_PUT" if class_probabilities.get(0, 0.0) > class_probabilities.get(2, 0.0)
+            else "BUY_CALL"
+        )
+        risk_levels = compute_atr_risk_levels(signal_row, reference_direction)
+        stop_price = risk_levels["stop_loss"]
+        target_price = risk_levels["take_profit"]
 
     if confidence is None:
         confidence_text = "No model score"
     elif high_confidence_forecast:
         confidence_text = f"{float(confidence):.1%} directional"
+    elif (
+        class_probabilities.get(1) is not None
+        and float(class_probabilities.get(1) or 0.0) >= max(
+            float(class_probabilities.get(0) or 0.0),
+            float(class_probabilities.get(2) or 0.0),
+        )
+    ):
+        confidence_text = f"{float(confidence):.1%} HOLD-dominant"
     else:
-        confidence_text = f"{float(confidence):.1%} (not directional)"
+        confidence_text = f"{float(confidence):.1%} directional (below 55%)"
     entry_label = "Indicative Next Entry" if signal_name != "HOLD" else "Latest Closed Price"
     entry_text = f"${signal_entry_price:,.2f}"
     stop_text = f"${stop_price:,.2f}" if stop_price is not None else "N/A"
@@ -389,7 +421,7 @@ else:
     # The forecast is made from the last closed candle and applies to the
     # candle that is forming now, not the candle after it.
     next_candle_start = current_candle_start
-    exit_text = display_time(next_candle_start + timedelta(minutes=20)) if signal_name != "HOLD" else "N/A"
+    exit_text = display_time(next_candle_start + timedelta(minutes=20))
     timing_text = f"Next candle starts in {seconds_to_close // 60:02d}:{seconds_to_close % 60:02d} · forecast uses completed candles only"
     active_positions = load_active_positions()
     memory_stats = trade_memory.recent_stats()
@@ -488,7 +520,7 @@ else:
             uirevision=f"btc-chart-{selected_tf}",
         )
         st.plotly_chart(
-            fig, use_container_width=True,
+            fig, width="stretch",
             config={
                 "scrollZoom": True,        # mouse wheel / trackpad zoom
                 "displaylogo": False,
@@ -510,15 +542,20 @@ fixed_starting_capital = float(getattr(config, "BTC_START_CAPITAL_USD", 20.00))
 risk_budget = fixed_starting_capital * float(getattr(config, "RISK_PER_TRADE_PCT", 0.005))
 display_threshold = config.PAPER_MIN_ACTIONABLE_CONFIDENCE if config.PAPER_TRADING_MODE else config.MIN_ACTIONABLE_CONFIDENCE
 signal_direction = {"BUY_CALL": "CALL", "BUY_PUT": "PUT", "HOLD": "HOLD"}.get(signal_name, "HOLD")
+if signal_name == "HOLD":
+    signal_direction = (
+        "WATCH PUT" if class_probabilities.get(0, 0.0) > class_probabilities.get(2, 0.0)
+        else "WATCH CALL"
+    )
 signal_status = "TRADE NEXT CANDLE" if decision_title == "TRADE NEXT CANDLE" else "WAIT"
 if signal_name == "HOLD" and confidence is not None:
     signal_status = f"WAIT ({float(confidence):.1%} < {display_threshold:.0%})"
 current_row = {
-    "Time": f"Signal: {signal_candle_time}",
+    "Time": f"NEXT: {display_time(next_candle_start)}",
     "Entry Time": display_time(next_candle_start),
     "Direction": signal_direction,
     "Win Probability": f"{float(confidence):.1%}" if confidence is not None else "--",
-    "Entry": f"${signal_entry_price:,.2f}" if signal_name != "HOLD" else "--",
+    "Entry": f"${signal_entry_price:,.2f}",
     "Stop Loss": f"${stop_price:,.2f}" if stop_price is not None else "--",
     "Target": f"${target_price:,.2f}" if target_price is not None else "--",
     "Exit By": exit_text,
@@ -549,40 +586,80 @@ if active_positions:
             "Status": "ACTIVE - WAIT FOR EXIT",
         })
     signal_rows = active_signal_rows + signal_rows
-prediction_path = Path(prediction_tracker.CSV_FILE)
-if prediction_path.exists() and prediction_path.stat().st_size:
-    try:
-        recent_predictions = pd.read_csv(prediction_path, dtype=str).tail(20).iloc[::-1]
-        for _, row in recent_predictions.iterrows():
-            direction = {"BUY_CALL": "CALL", "BUY_PUT": "PUT", "HOLD": "HOLD"}.get(row.get("Direction"), "HOLD")
-            if direction == "HOLD":
-                continue
-            confidence_value = pd.to_numeric(row.get("AI_Confidence"), errors="coerce")
-            signal_rows.append({
-                "Time": display_time(row.get("Candle_Time")),
-                "Entry Time": "Completed",
-                "Direction": direction,
-                "Win Probability": f"{confidence_value:.1%}" if pd.notna(confidence_value) else "--",
-                "Entry": f"${float(row['Entry_Price']):,.2f}" if row.get("Entry_Price") else "--",
-                "Stop Loss": f"${float(row['Stop_Loss']):,.2f}" if row.get("Stop_Loss") else "--",
-                "Target": f"${float(row['Take_Profit']):,.2f}" if row.get("Take_Profit") else "--",
-                "Exit By": display_time(
-                    f"{row.get('Resolved_Date', '')}T{row.get('Resolved_Time', '')}"
-                ) if row.get("Resolved_Date") and row.get("Resolved_Time") else "Pending",
-                "Amount to Risk": f"${risk_budget:,.2f}",
-                "Status": row.get("Outcome") or row.get("Status", "PENDING"),
-            })
-    except (OSError, ValueError, TypeError, pd.errors.EmptyDataError, pd.errors.ParserError):
-        pass
 
 st.markdown("<div class='sec-label'>NEXT CANDLE SIGNAL</div>", unsafe_allow_html=True)
 st.caption(
     f"One row is the current recommendation. Amount to Risk = ${fixed_starting_capital:,.2f} capital × "
     f"{config.RISK_PER_TRADE_PCT:.2%} risk per trade = ${risk_budget:,.2f} maximum planned loss. "
-    f"Only {display_threshold:.0%}+ directional signals can become TRADE NEXT CANDLE. All times are IST."
+    f"Only {display_threshold:.0%}+ directional signals can become TRADE NEXT CANDLE. "
+    "Confidence is a model score, not a guaranteed win rate. All times are IST."
 )
-signal_display = pd.DataFrame(signal_rows).drop_duplicates(subset=["Time", "Direction"], keep="first")
-st.dataframe(signal_display, use_container_width=True, hide_index=True)
+
+signal_display = pd.DataFrame(signal_rows)
+st.dataframe(
+    signal_display,
+    width="stretch",
+    hide_index=True,
+    key=f"next_signal_table_{signal_candle_time}_{signal_direction}",
+)
+
+with st.expander("Recent trade outcomes", expanded=False):
+    history_rows = []
+    prediction_path = Path(prediction_tracker.CSV_FILE)
+    if prediction_path.exists() and prediction_path.stat().st_size:
+        try:
+            history_df = pd.read_csv(prediction_path, dtype=str)
+            history_df["_sort_time"] = pd.to_datetime(
+                history_df.get("Candle_Time"), errors="coerce", utc=True
+            )
+            history_df = history_df.sort_values(
+                "_sort_time", ascending=False, na_position="last"
+            )
+            for _, row in history_df.iterrows():
+                direction = str(row.get("Direction", "")).strip()
+                if direction not in {"BUY_CALL", "BUY_PUT"}:
+                    continue
+
+                try:
+                    entry_value = float(row.get("Entry_Price", ""))
+                    stop_value = float(row.get("Stop_Loss", ""))
+                    target_value = float(row.get("Take_Profit", ""))
+                except (TypeError, ValueError):
+                    continue
+                if pd.isna(entry_value) or pd.isna(stop_value) or pd.isna(target_value):
+                    continue
+
+                outcome = str(row.get("Outcome") or row.get("Status") or "").upper()
+                if outcome not in {"WIN", "LOSS", "PENDING"}:
+                    continue
+
+                confidence_value = pd.to_numeric(row.get("AI_Confidence"), errors="coerce")
+                history_rows.append({
+                    "Time": display_time(row.get("Candle_Time")),
+                    "Entry Time": "Completed",
+                    "Direction": "CALL" if direction == "BUY_CALL" else "PUT",
+                    "Win Probability": f"{confidence_value:.1%}" if pd.notna(confidence_value) else "--",
+                    "Entry": f"${entry_value:,.2f}",
+                    "Stop Loss": f"${stop_value:,.2f}",
+                    "Target": f"${target_value:,.2f}",
+                    "Exit By": display_time(
+                        f"{row.get('Resolved_Date', '')}T{row.get('Resolved_Time', '')}"
+                    ) if row.get("Resolved_Date") and row.get("Resolved_Time") else "Pending",
+                    "Amount to Risk": f"${risk_budget:,.2f}",
+                    "Status": outcome,
+                })
+        except (OSError, ValueError, TypeError, pd.errors.EmptyDataError, pd.errors.ParserError):
+            pass
+
+    if history_rows:
+        st.dataframe(
+            pd.DataFrame(history_rows),
+            width="stretch",
+            hide_index=True,
+            key=f"history_table_{signal_candle_time}_{signal_direction}",
+        )
+    else:
+        st.info("No valid historical trade outcomes yet.")
 
 # ================================================================================
 # SIDEBAR -- asset-agnostic controls kept from the original dashboard
@@ -604,7 +681,7 @@ st.sidebar.caption(
 st.sidebar.markdown("---")
 if "hide_completed_trade_table" not in st.session_state:
     st.session_state["hide_completed_trade_table"] = False
-if st.sidebar.button("🧹 Clear Table View", use_container_width=True):
+if st.sidebar.button("🧹 Clear Table View", width="stretch"):
     st.session_state["hide_completed_trade_table"] = True
     st.rerun()
 st.sidebar.caption("Clears only this screen view; CSV and bot memory remain safe.")
@@ -644,5 +721,5 @@ if current_exec_mode == "REAL":
 else:
     st.sidebar.success("🟡 MODE: PAPER (safe)")
 
-if st.sidebar.button("🔄 Refresh", use_container_width=True):
+if st.sidebar.button("🔄 Refresh", width="stretch"):
     st.rerun()

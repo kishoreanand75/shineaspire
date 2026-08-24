@@ -3,6 +3,7 @@ import os
 import pandas as pd
 import numpy as np
 import ta
+import config
 from xgboost import XGBClassifier
 from signal_engine import decide_from_row, build_features
 import data_feed
@@ -254,7 +255,7 @@ def compute_htf_trend_series(df: pd.DataFrame, htf: str = "1h", ema_window: int 
 
 def run_institutional_backtest_with_slippage(df: pd.DataFrame, initial_capital: float = 100000.0,
                                               slippage_pct: float = 0.0008, taker_fee_pct: float = 0.00075,
-                                              max_hold_bars: int = 20, tp_atr_mult: float = 3.0, sl_atr_mult: float = 1.5,
+                                              max_hold_bars: int = 20, tp_atr_mult: float = None, sl_atr_mult: float = None,
                                               min_lookback: int = 45, symbol: str = "BTCUSDT",
                                               risk_per_trade_pct: float = 0.01):
     """
@@ -287,6 +288,9 @@ def run_institutional_backtest_with_slippage(df: pd.DataFrame, initial_capital: 
     """
     if df is None or len(df) < 30:
         return None
+
+    tp_atr_mult = config.ATR_TP_MULTIPLIER if tp_atr_mult is None else tp_atr_mult
+    sl_atr_mult = config.ATR_SL_MULTIPLIER if sl_atr_mult is None else sl_atr_mult
 
     df = df.copy()
     df_feat = build_features(df)  # computed ONCE for the whole dataset -- O(n), not O(n^2)

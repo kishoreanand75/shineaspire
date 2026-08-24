@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report
 import config
 import data_feed
+from signal_engine import get_timeframe_filters
 
 
 def detect_candlestick_patterns(df):
@@ -131,9 +132,9 @@ def train_institutional_ai():
     print("🤖 TRAINING AI MODEL (feature set synced with multi_strategy.py) 🤖")
     print("==================================================")
 
-    print(f"1. Downloading 180 days of {config.DEFAULT_SYMBOL} historical data...")
+    print(f"1. Downloading 365 days of {config.DEFAULT_SYMBOL} historical data ({config.TRADE_TIMEFRAME})...")
     df = data_feed.fetch_btc_historical_data(
-        config.DEFAULT_SYMBOL, config.TRADE_TIMEFRAME, days=180
+        config.DEFAULT_SYMBOL, config.TRADE_TIMEFRAME, days=365
     )
     df = df.rename(columns={column: column.title() for column in df.columns})
     if df.empty:
@@ -142,15 +143,13 @@ def train_institutional_ai():
     print("2. Computing indicators (matching live scan feature set)...")
     df = build_features(df)
 
-    # --- Target now matches the ACTUAL trade rule, not an arbitrary 3-bar %. ---
-    # Previously: Target was "does price move >0.15% in the next 3 bars?" --
-    # but signal_engine.py / backtester.py actually trade with ATR-based TP
-    # (3.0x ATR) / SL (1.5x ATR), held for up to 20 bars. The model was being
-    # trained on a different question than the one it's deployed to answer.
+    # --- Target matches the configured trade rule, not an arbitrary return. ---
+    # The model must learn the same ATR target/stop outcome that the backtester
+    # and live signal path use, otherwise confidence describes a different trade.
     # This simulates the SAME TP/SL/hold-time rule bar-by-bar to build labels
     # that match what the model is actually used for at inference time.
-    TP_ATR_MULT = 3.0
-    SL_ATR_MULT = 1.5
+    TP_ATR_MULT = config.ATR_TP_MULTIPLIER
+    SL_ATR_MULT = config.ATR_SL_MULTIPLIER
     MAX_HOLD_BARS = 20
 
     high = df['High'].values
@@ -198,6 +197,19 @@ def train_institutional_ai():
 
     df['Target'] = target
     df.iloc[-MAX_HOLD_BARS:, df.columns.get_loc('Target')] = 1  # tail has no full lookahead window -> HOLD
+
+    # Train on the same minimum-quality bars that reach model scoring in the
+    # deployed signal path. Including weak candles and low-volatility chop
+    # teaches the classifier about rows that can never become trades.
+    filters = get_timeframe_filters(df)
+    candle_range = df['High'] - df['Low'] + 1e-6
+    body_ratio = (df['Close'] - df['Open']).abs() / candle_range
+    eligible = (
+        (body_ratio >= filters['body'])
+        & (df['ADX'] >= filters['adx'])
+        & (df['ATR'] >= df['Close'] * filters['atr'])
+    )
+    df = df.loc[eligible].copy()
 
     df.dropna(subset=FEATURE_COLUMNS, inplace=True)
 

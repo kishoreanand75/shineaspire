@@ -7,20 +7,23 @@ import os
 PRIMARY_MODE = "BTC_SPOT"
 DEFAULT_SYMBOL = "BTCUSDT"
 BTC_START_CAPITAL_USD = 20.00
-TIMEFRAME = "5m"
-TRADE_TIMEFRAME = "5m"
+TIMEFRAME = "1h"
+TRADE_TIMEFRAME = "1h"
 SUPPORTED_TIMEFRAMES = ("1m", "5m", "15m", "1h", "4h", "1d")
 
 # --- RISK KILL-SWITCH & LIVE-TRADING READINESS GATE ---
 MAX_DAILY_LOSS_PCT = 3.0            # Auto-halt trading if today's loss exceeds 3% of capital
 MAX_DAILY_TRADES = 3                # Hard cap on trades per day regardless of signals
 RISK_PER_TRADE_PCT = 0.005          # Risk at most 0.5% of current capital per trade
+ATR_SL_MULTIPLIER = 1.5
+ATR_TP_MULTIPLIER = 1.5             # Initial 1:1 risk/reward test for short-hold signals
 PAPER_MAX_DAILY_TRADES = 999999     # Paper data collection is not limited by the live cap
 MIN_PAPER_TRADING_DAYS = 30         # Minimum days of paper-trade history required before REAL mode unlocks
 MIN_BACKTEST_WIN_RATE = 55.0        # Backtest win rate threshold (%) required before REAL mode unlocks
 MAX_BACKTEST_DRAWDOWN_PCT = 15.0    # Backtest max drawdown threshold (%) - REAL mode blocked above this
 MIN_ACTIONABLE_CONFIDENCE = 0.55    # Actionable signal requires a 55% directional model score
 PAPER_TRADING_MODE = True           # Paper-only data collection; real mode remains gated
+PREDICTION_ONLY_MODE = True         # Never open/close simulated or real trades; publish signals only
 PAPER_MIN_ACTIONABLE_CONFIDENCE = 0.55  # Match the actionable directional-confidence gate
 PAPER_EXPERIMENTAL_SIGNALS = False      # Do not execute near-random experimental signals
 PAPER_MIN_DIRECTIONAL_PROBABILITY = 0.55

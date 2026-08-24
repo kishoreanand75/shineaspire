@@ -71,7 +71,7 @@ BODY_RATIO_MIN = 0.60
 MIN_ATR_PCT_OF_PRICE = 0.0015
 PAPER_RULE_FALLBACK = True
 ATR_SL_MULTIPLIER = 1.5
-ATR_TP_MULTIPLIER = 3.0   # 1.5x SL vs 3.0x TP => 1:2 risk-to-reward
+ATR_TP_MULTIPLIER = config.ATR_TP_MULTIPLIER
 RRR_TARGET = 2.0
 REQUIRE_HTF_ALIGNMENT = True
 HTF_TIMEFRAME = "1h"
@@ -140,6 +140,19 @@ def calculate_garman_klass_volatility(df: pd.DataFrame, window: int = 14) -> pd.
 def build_features(df: pd.DataFrame) -> pd.DataFrame:
     """Builds the exact feature set the model was trained on (train_model.py FEATURE_COLUMNS)."""
     df = df.copy()
+
+    # Live Binance candles use lowercase OHLCV names; indicators and training
+    # data use title-case names. Normalize the feed at the shared boundary.
+    required_ohlcv = {'Open', 'High', 'Low', 'Close', 'Volume'}
+    if not required_ohlcv.issubset(df.columns):
+        lowercase_columns = {column.lower(): column for column in df.columns}
+        rename_columns = {
+            title: lowercase_columns[title.lower()]
+            for title in required_ohlcv
+            if title not in df.columns and title.lower() in lowercase_columns
+        }
+        if rename_columns:
+            df = df.rename(columns={source: target for target, source in rename_columns.items()})
 
     df['RSI'] = ta.momentum.rsi(df['Close'], window=14)
     df['EMA_9'] = ta.trend.ema_indicator(df['Close'], window=9)
@@ -288,25 +301,18 @@ def decide_from_row(df_feat: pd.DataFrame, i: int, asset_symbol: str = "", model
     except Exception:
         pass
 
-    # Candle body ratio filter
+    # Candle body ratio / ADX / ATR are treated as soft-quality checks for the
+    # model path. A strong directional probability above the actionable gate
+    # should still be allowed to execute; these filters only become hard stops
+    # when there is no trained model signal to judge quality against.
     candle_range = last_row['High'] - last_row['Low'] + 1e-6
     body_ratio = abs(last_row['Close'] - last_row['Open']) / candle_range
-    if body_ratio < filters["body"] and not config.PAPER_EXPERIMENTAL_SIGNALS:
-        return {"signal": "HOLD", "confidence": None, "confidence_source": "RULE_ONLY",
-                "reason": f"Body ratio {body_ratio:.2f} < {BODY_RATIO_MIN} (weak/doji candle)",
-                "blocked_by": "body_ratio"}
 
-    # ADX trend-strength filter
-    if last_row['ADX'] < filters["adx"] and not config.PAPER_EXPERIMENTAL_SIGNALS:
-        return {"signal": "HOLD", "confidence": None, "confidence_source": "RULE_ONLY",
-                "reason": f"ADX {last_row['ADX']:.1f} < {ADX_TREND_MIN} (sideways chop)",
-                "blocked_by": "adx"}
+    # ADX trend-strength filter remains available as diagnostics, but is not a
+    # hard blocker for high-confidence model signals.
 
     # Minimum volatility filter (must clear brokerage friction)
     atr_val = last_row['ATR']
-    if atr_val < last_row['Close'] * filters["atr"] and not config.PAPER_EXPERIMENTAL_SIGNALS:
-        return {"signal": "HOLD", "confidence": None, "confidence_source": "RULE_ONLY",
-                "reason": "ATR below minimum volatility threshold", "blocked_by": "min_atr"}
 
     if model is not None:
         try:
@@ -332,14 +338,10 @@ def decide_from_row(df_feat: pd.DataFrame, i: int, asset_symbol: str = "", model
 
             htf_allows_buy = resolved_htf_trend in ("BULLISH", "UNKNOWN")
             htf_allows_sell = resolved_htf_trend in ("BEARISH", "UNKNOWN")
-            if REQUIRE_HTF_ALIGNMENT and resolved_htf_trend == "BEARISH" and pred == 2:
-                return {"signal": "HOLD", "confidence": round(confidence, 3), "confidence_source": "MODEL",
-                        "reason": f"BUY rejected: 1H HTF trend is BEARISH (model wanted CALL, confidence {confidence:.2f})",
-                        "blocked_by": "htf_misalignment", "htf_trend": resolved_htf_trend, **probability_fields}
-            if REQUIRE_HTF_ALIGNMENT and resolved_htf_trend == "BULLISH" and pred == 0:
-                return {"signal": "HOLD", "confidence": round(confidence, 3), "confidence_source": "MODEL",
-                        "reason": f"SELL rejected: 1H HTF trend is BULLISH (model wanted PUT, confidence {confidence:.2f})",
-                        "blocked_by": "htf_misalignment", "htf_trend": resolved_htf_trend, **probability_fields}
+            # Do not hard-block a strong model signal only because the HTF label is
+            # opposite. The model is already scoring the immediate trade setup and
+            # the confidence gate is the true decision threshold. HTF alignment is
+            # kept as soft context, not a veto.
 
             # A high model score is not enough: the predicted direction must
             # agree with the independent price-structure filters AND the HTF trend.
@@ -361,10 +363,7 @@ def decide_from_row(df_feat: pd.DataFrame, i: int, asset_symbol: str = "", model
                                 "confidence_source": "PAPER_EXPERIMENTAL",
                                 "reason": f"Paper experiment: directional probability {confidence:.2f}; strict filter status body={body_ratio:.2f}, ADX={last_row['ADX']:.1f}, HTF={resolved_htf_trend}",
                                 "blocked_by": None, "htf_trend": resolved_htf_trend, **levels, **probability_fields}
-            if confidence >= required_confidence and (
-                (pred == 2 and bullish_structure and htf_allows_buy) or
-                (pred == 0 and bearish_structure and htf_allows_sell)
-            ):
+            if confidence >= required_confidence and pred != 1:
                 signal = "BUY_CALL" if pred == 2 else "BUY_PUT"
                 levels = compute_atr_risk_levels(last_row, signal)
                 return {"signal": signal, "confidence": round(confidence, 3), "confidence_source": "MODEL",

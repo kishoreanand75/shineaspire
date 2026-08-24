@@ -8,7 +8,10 @@ from datetime import datetime, timezone
 
 CSV_FILE = "prediction_outcomes.csv"
 PENDING_FILE = "pending_predictions.json"
-MAX_HOLD_MINUTES = 100
+# Prediction outcomes use the same 20-minute evaluation window as the bot's
+# paper trade exit. A longer window leaves signals pending after their plan
+# has already expired.
+MAX_HOLD_MINUTES = 20
 FIELDS = [
     "Prediction_ID", "Signal_Date", "Signal_Time", "Candle_Time", "Symbol", "Direction",
     "Entry_Price", "Stop_Loss", "Take_Profit", "AI_Confidence", "PUT_Probability", "HOLD_Probability", "CALL_Probability", "HTF_Trend",
@@ -87,7 +90,17 @@ def process_scan_results(results):
         market = by_symbol.get(forecast["symbol"])
         signal_time = _parse_time(forecast["candle_time"])
         market_time = _parse_time(market.get("Candle_Time")) if market else None
-        if not market or not signal_time or not market_time or market_time <= signal_time:
+        if not market or not signal_time:
+            if not signal_time or (now.replace(tzinfo=None) - signal_time).total_seconds() / 60.0 < MAX_HOLD_MINUTES:
+                remaining.append(forecast)
+                continue
+            market = {"Candle_High": forecast["entry_price"], "Candle_Low": forecast["entry_price"],
+                      "Candle_Close": forecast["entry_price"], "Candle_Time": now.replace(tzinfo=None).isoformat()}
+        if not market_time:
+            market_time = now.replace(tzinfo=None)
+        elapsed_minutes = (market_time - signal_time).total_seconds() / 60.0
+        wall_clock_elapsed = (now.replace(tzinfo=None) - signal_time).total_seconds() / 60.0
+        if market_time <= signal_time and wall_clock_elapsed < MAX_HOLD_MINUTES:
             remaining.append(forecast)
             continue
 
@@ -106,7 +119,7 @@ def process_scan_results(results):
             outcome, reason, exit_price = "WIN", "TAKE_PROFIT_HIT: bullish target reached", target
         elif direction == "BUY_PUT" and low <= target:
             outcome, reason, exit_price = "WIN", "TAKE_PROFIT_HIT: bearish target reached", target
-        elif (market_time - signal_time).total_seconds() / 60.0 >= MAX_HOLD_MINUTES:
+        elif max(elapsed_minutes, wall_clock_elapsed) >= MAX_HOLD_MINUTES:
             favorable = close > entry if direction == "BUY_CALL" else close < entry
             outcome = "WIN" if favorable else "LOSS"
             reason = "TIME_EXPIRY: favorable close" if favorable else "TIME_EXPIRY: unfavorable close"
