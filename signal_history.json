@@ -907,5 +907,41 @@
     "confidence": 0.385,
     "reason": "SELL rejected: 1H HTF trend is BULLISH (model wanted PUT, confidence 0.39)",
     "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T11:20:04.502445+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 11:15:00",
+    "signal": "HOLD",
+    "confidence": 0.496,
+    "reason": "SELL rejected: 1H HTF trend is BULLISH (model wanted PUT, confidence 0.50)",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T12:25:32.871183+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 12:20:00",
+    "signal": "BUY_CALL",
+    "confidence": 0.371,
+    "reason": "Paper experiment: directional probability 0.37; strict filter status body=0.79, ADX=35.1, HTF=BULLISH",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T12:30:07.025352+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 12:25:00",
+    "signal": "BUY_CALL",
+    "confidence": 0.349,
+    "reason": "Paper experiment: directional probability 0.35; strict filter status body=0.29, ADX=35.3, HTF=BULLISH",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T12:35:04.897321+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 12:30:00",
+    "signal": "BUY_CALL",
+    "confidence": 0.322,
+    "reason": "Paper experiment: directional probability 0.32; strict filter status body=0.23, ADX=36.1, HTF=BULLISH",
+    "htf_trend": "BULLISH"
   }
 ]

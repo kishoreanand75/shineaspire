@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "prediction_id": "20260824122532965999",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 12:20:00",
+    "direction": "BUY_CALL",
+    "entry_price": 78426.0,
+    "stop_loss": 78133.0872,
+    "take_profit": 79011.8255
+  },
+  {
+    "prediction_id": "20260824123007063744",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 12:25:00",
+    "direction": "BUY_CALL",
+    "entry_price": 78460.01,
+    "stop_loss": 78175.2406,
+    "take_profit": 79029.5487
+  },
+  {
+    "prediction_id": "20260824123504922174",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 12:30:00",
+    "direction": "BUY_CALL",
+    "entry_price": 78540.89,
+    "stop_loss": 78238.5327,
+    "take_profit": 79145.6045
+  }
+]
