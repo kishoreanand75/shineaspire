@@ -1,0 +1,34 @@
+# ================================================================================
+# ANTONY QUANT AI TERMINAL - CONFIGURATION ENGINE (5-LAYER INSTITUTIONAL EDITION)
+# ================================================================================
+import os
+
+# --- CORE TRADING MODE ---
+PRIMARY_MODE = "BTC_SPOT"
+DEFAULT_SYMBOL = "BTCUSDT"
+BTC_START_CAPITAL_USD = 20.00
+TIMEFRAME = "5m"
+TRADE_TIMEFRAME = "5m"
+SUPPORTED_TIMEFRAMES = ("1m", "5m", "15m", "1h", "4h", "1d")
+
+# --- RISK KILL-SWITCH & LIVE-TRADING READINESS GATE ---
+MAX_DAILY_LOSS_PCT = 3.0            # Auto-halt trading if today's loss exceeds 3% of capital
+MAX_DAILY_TRADES = 3                # Hard cap on trades per day regardless of signals
+PAPER_MAX_DAILY_TRADES = 999999     # Paper data collection is not limited by the live cap
+MIN_PAPER_TRADING_DAYS = 30         # Minimum days of paper-trade history required before REAL mode unlocks
+MIN_BACKTEST_WIN_RATE = 55.0        # Backtest win rate threshold (%) required before REAL mode unlocks
+MAX_BACKTEST_DRAWDOWN_PCT = 15.0    # Backtest max drawdown threshold (%) - REAL mode blocked above this
+MIN_ACTIONABLE_CONFIDENCE = 0.70    # Paper entry requires a 70% directional model score
+PAPER_TRADING_MODE = True           # Paper-only data collection; real mode remains gated
+PAPER_MIN_ACTIONABLE_CONFIDENCE = 0.60  # Exploratory paper trades only
+PAPER_EXPERIMENTAL_SIGNALS = True       # Collect outcomes even when strict filters reject a setup
+PAPER_MIN_DIRECTIONAL_PROBABILITY = 0.15
+MIN_PAPER_PROFIT_FACTOR = 1.0      # Paper execution requires a positive validated edge
+MAX_PAPER_DRAWDOWN_PCT = 15.0      # Paper execution is blocked beyond this drawdown
+BINANCE_TAKER_FEE = 0.00075        # Standard Binance spot taker fee per side
+ALLOW_UNVALIDATED_PAPER_TRADING = True  # Collect paper evidence before real-mode review
+AUTO_RETRAIN_ENABLED = True             # Retrain the paper model in the background
+AUTO_RETRAIN_INTERVAL_HOURS = 24
+
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")

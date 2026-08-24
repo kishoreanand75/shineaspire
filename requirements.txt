@@ -1,0 +1,16 @@
+Flask
+streamlit
+plotly
+pandas
+yfinance
+ta
+xgboost
+pyotp
+requests
+scikit-learn
+streamlit-autorefresh
+google-generativeai
+websocket-client
+ccxt
+playwright
+websockets

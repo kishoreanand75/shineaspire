@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Antony Quant — Trading Terminal</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#0A0E14; --bg-1:#10151D; --bg-2:#161C26; --bg-3:#1D2530;
+    --line:#232B37;
+    --txt-0:#E8EDF4; --txt-1:#8B96A5; --txt-2:#5A6472;
+    --up:#26D07C; --down:#F3524A; --amber:#F0B429; --blue:#4C8DFF;
+  }
+  *{box-sizing:border-box;}
+  body{background:var(--bg-0); color:var(--txt-0); font-family:'Inter',sans-serif;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  .panel{background:var(--bg-1); border:1px solid var(--line); border-radius:10px;}
+  .panel-2{background:var(--bg-2); border:1px solid var(--line); border-radius:8px;}
+  .glow-up{box-shadow: 0 0 0 1px rgba(38,208,124,0.25), 0 0 24px -8px rgba(38,208,124,0.35);}
+  .glow-down{box-shadow: 0 0 0 1px rgba(243,82,74,0.25), 0 0 24px -8px rgba(243,82,74,0.35);}
+  .scrollbar-thin::-webkit-scrollbar{width:6px; height:6px;}
+  .scrollbar-thin::-webkit-scrollbar-thumb{background:var(--line); border-radius:3px;}
+  .scrollbar-thin::-webkit-scrollbar-track{background:transparent;}
+  .pulse-dot{animation: pulse 2s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+  .tab-active{color:var(--txt-0); border-bottom:2px solid var(--blue);}
+  .tab{color:var(--txt-2); border-bottom:2px solid transparent; transition:.15s;}
+  .tab:hover{color:var(--txt-1);}
+  .row-hover:hover{background:var(--bg-3);}
+  ::selection{background:rgba(76,141,255,.3);}
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- TOP BAR -->
+<header class="border-b border-[var(--line)] bg-[var(--bg-1)]/80 backdrop-blur sticky top-0 z-30">
+  <div class="flex items-center justify-between px-5 py-3">
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-md bg-gradient-to-br from-[var(--blue)] to-[#7C5CFF] flex items-center justify-center font-bold text-xs mono">AQ</div>
+        <span class="font-semibold tracking-tight text-[15px]">Antony Quant</span>
+        <span class="text-[var(--txt-2)] text-xs mono px-1.5 py-0.5 rounded border border-[var(--line)]">RISK-MANAGED SCANNER</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-5 text-xs mono text-[var(--txt-1)]">
+      <div class="flex items-center gap-1.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-[var(--txt-2)] pulse-dot"></span>
+        <span id="clock">--:--:-- IST</span>
+      </div>
+      <div id="market-status" class="px-2 py-1 rounded bg-[var(--down)]/10 text-[var(--down)] border border-[var(--down)]/25 font-medium">NSE CLOSED · WEEKEND</div>
+      <button class="px-3 py-1.5 rounded-md bg-[var(--bg-3)] border border-[var(--line)] hover:border-[var(--blue)]/50 transition text-[var(--txt-0)]">Refresh Engine</button>
+    </div>
+  </div>
+</header>
+
+<div class="grid grid-cols-12 gap-4 p-4 max-w-[1700px] mx-auto">
+
+  <!-- LEFT: WATCHLIST -->
+  <aside class="col-span-12 xl:col-span-2 panel p-3 h-fit">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="text-xs font-semibold text-[var(--txt-1)] uppercase tracking-wide">Watchlist</h3>
+      <span class="text-[10px] mono text-[var(--txt-2)]">5 assets</span>
+    </div>
+    <div class="space-y-1" id="watchlist"></div>
+
+    <div class="mt-5 pt-4 border-t border-[var(--line)]">
+      <h3 class="text-xs font-semibold text-[var(--txt-1)] uppercase tracking-wide mb-2">India VIX</h3>
+      <div class="flex items-baseline gap-2">
+        <span class="text-2xl font-bold mono">11.22</span>
+        <span class="text-xs mono text-[var(--down)]">−0.01</span>
+      </div>
+      <div class="mt-2 text-[11px] text-[var(--txt-2)] leading-relaxed">Below 12 → premium decay trap. Entries filtered.</div>
+    </div>
+  </aside>
+
+  <!-- CENTER: CHART -->
+  <main class="col-span-12 xl:col-span-7 space-y-4">
+
+    <div class="panel p-4">
+      <div class="flex items-start justify-between flex-wrap gap-3">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-lg font-bold tracking-tight">NIFTY 50</span>
+            <span class="text-[10px] mono px-1.5 py-0.5 rounded bg-[var(--bg-3)] text-[var(--txt-2)]">NSE · 5m</span>
+          </div>
+          <div class="flex items-baseline gap-2 mt-1">
+            <span class="text-3xl font-bold mono" id="ltp">24,252.00</span>
+            <span class="text-sm font-medium mono text-[var(--up)]" id="chg">+17.25 (+0.07%)</span>
+          </div>
+        </div>
+        <div class="flex gap-4 text-xs mono text-[var(--txt-1)]">
+          <div><div class="text-[var(--txt-2)]">O</div><div class="text-[var(--txt-0)]">24,231.20</div></div>
+          <div><div class="text-[var(--txt-2)]">H</div><div class="text-[var(--txt-0)]">24,272.50</div></div>
+          <div><div class="text-[var(--txt-2)]">L</div><div class="text-[var(--txt-0)]">24,226.10</div></div>
+          <div><div class="text-[var(--txt-2)]">VOL</div><div class="text-[var(--txt-0)]">46.5K</div></div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-1 mt-3 mb-1 text-xs">
+        <button class="tab tab-active px-2.5 py-1.5">5m</button>
+        <button class="tab px-2.5 py-1.5">15m</button>
+        <button class="tab px-2.5 py-1.5">1H</button>
+        <button class="tab px-2.5 py-1.5">1D</button>
+        <span class="mx-2 text-[var(--line)]">|</span>
+        <span class="px-2 py-1 rounded bg-[var(--bg-3)] text-[var(--blue)] mono text-[11px]">EMA 9</span>
+        <span class="px-2 py-1 rounded bg-[var(--bg-3)] text-[#B084FF] mono text-[11px]">EMA 21</span>
+      </div>
+
+      <div id="chart" class="w-full" style="height:340px;"></div>
+      <div id="rsi-chart" class="w-full mt-1" style="height:90px;"></div>
+    </div>
+
+    <!-- SIGNAL CARD -->
+    <div class="panel p-5" id="signal-card">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-xs font-semibold text-[var(--txt-1)] uppercase tracking-wide">Live Signal — 5-Layer Filter</h3>
+        <span class="text-[10px] mono text-[var(--txt-2)]">Updated 2s ago</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#8B96A5]/30 to-[#5A6472]/10 border border-[var(--line)] flex items-center justify-center">
+          <div class="w-3 h-3 rounded-full bg-[var(--txt-2)]"></div>
+        </div>
+        <div class="flex-1">
+          <div class="text-xl font-bold">WAIT — Rejected by Filter</div>
+          <div class="text-sm text-[var(--txt-1)] mt-0.5">Reason: <span class="text-[var(--amber)] mono">VIX &lt; 12</span> · Premium Decay Trap</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-5 gap-2 mt-5">
+        <div class="panel-2 p-2.5">
+          <div class="text-[10px] text-[var(--txt-2)] uppercase mb-1">L1 · Heavyweights</div>
+          <div class="text-sm font-semibold mono text-[var(--up)]">K=4/5</div>
+          <div class="text-[10px] mono text-[var(--txt-2)]">A=0.82</div>
+        </div>
+        <div class="panel-2 p-2.5">
+          <div class="text-[10px] text-[var(--txt-2)] uppercase mb-1">L2 · VIX</div>
+          <div class="text-sm font-semibold mono text-[var(--down)]">11.2</div>
+          <div class="text-[10px] mono text-[var(--txt-2)]">Δ=−0.01</div>
+        </div>
+        <div class="panel-2 p-2.5">
+          <div class="text-[10px] text-[var(--txt-2)] uppercase mb-1">L3 · PCR</div>
+          <div class="text-sm font-semibold mono text-[var(--up)]">1.18</div>
+          <div class="text-[10px] mono text-[var(--txt-2)]">Δ=+0.03</div>
+        </div>
+        <div class="panel-2 p-2.5">
+          <div class="text-[10px] text-[var(--txt-2)] uppercase mb-1">L4 · OI Runway</div>
+          <div class="text-sm font-semibold mono text-[var(--txt-2)]">Pending</div>
+        </div>
+        <div class="panel-2 p-2.5 border-[var(--down)]/30">
+          <div class="text-[10px] text-[var(--txt-2)] uppercase mb-1">L5 · Verdict</div>
+          <div class="text-sm font-semibold mono text-[var(--down)]">REJECT</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- RIGHT: POSITIONS / RISK / HISTORY -->
+  <aside class="col-span-12 xl:col-span-3 space-y-4">
+
+    <div class="panel p-4">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-xs font-semibold text-[var(--txt-1)] uppercase tracking-wide">Account</h3>
+      </div>
+      <div class="text-2xl font-bold mono">₹1,00,000</div>
+      <div class="flex items-center gap-3 mt-2 text-xs mono">
+        <span class="text-[var(--txt-1)]">Today's P&L</span>
+        <span class="text-[var(--up)] font-semibold">+₹0.00</span>
+      </div>
+      <div class="grid grid-cols-3 gap-2 mt-4 text-center">
+        <div class="panel-2 p-2">
+          <div class="text-lg font-bold mono">0/3</div>
+          <div class="text-[10px] text-[var(--txt-2)] uppercase mt-0.5">Open</div>
+        </div>
+        <div class="panel-2 p-2">
+          <div class="text-lg font-bold mono">0/3</div>
+          <div class="text-[10px] text-[var(--txt-2)] uppercase mt-0.5">Today's Trades</div>
+        </div>
+        <div class="panel-2 p-2">
+          <div class="text-lg font-bold mono text-[var(--down)]">−2%</div>
+          <div class="text-[10px] text-[var(--txt-2)] uppercase mt-0.5">Daily Kill</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel p-4">
+      <h3 class="text-xs font-semibold text-[var(--txt-1)] uppercase tracking-wide mb-3">Open Positions</h3>
+      <div class="flex flex-col items-center justify-center py-8 text-center">
+        <div class="w-9 h-9 rounded-full border border-[var(--line)] flex items-center justify-center mb-2 text-[var(--txt-2)]">—</div>
+        <div class="text-sm text-[var(--txt-1)]">No open positions</div>
+        <div class="text-[11px] text-[var(--txt-2)] mt-1">Scanner is waiting on filter conditions</div>
+      </div>
+    </div>
+
+    <div class="panel p-4">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-xs font-semibold text-[var(--txt-1)] uppercase tracking-wide">Backtest Metrics</h3>
+        <span class="text-[10px] mono text-[var(--txt-2)]">30D</span>
+      </div>
+      <div class="grid grid-cols-2 gap-3 text-xs">
+        <div><div class="text-[var(--txt-2)]">Win Rate</div><div class="mono font-semibold text-[var(--up)] text-base">58.4%</div></div>
+        <div><div class="text-[var(--txt-2)]">Profit Factor</div><div class="mono font-semibold text-base">1.34</div></div>
+        <div><div class="text-[var(--txt-2)]">Sharpe</div><div class="mono font-semibold text-base">1.12</div></div>
+        <div><div class="text-[var(--txt-2)]">Max Drawdown</div><div class="mono font-semibold text-[var(--down)] text-base">−6.8%</div></div>
+      </div>
+    </div>
+
+    <div class="panel p-4">
+      <h3 class="text-xs font-semibold text-[var(--txt-1)] uppercase tracking-wide mb-3">Trade Log</h3>
+      <div class="space-y-2 max-h-56 overflow-y-auto scrollbar-thin pr-1" id="trade-log"></div>
+    </div>
+
+  </aside>
+</div>
+
+<script>
+// ---------- Clock ----------
+function tick(){
+  const now = new Date();
+  const opts = {hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:false, timeZone:'Asia/Kolkata'};
+  document.getElementById('clock').textContent = now.toLocaleTimeString('en-GB', opts) + ' IST';
+}
+tick(); setInterval(tick, 1000);
+
+// ---------- Watchlist ----------
+const watchlist = [
+  {name:'BITCOIN', px:'67,340.50', chg:'+1.24%', up:true, signal:'HOLD'},
+  {name:'ETHEREUM', px:'3,214.80', chg:'-0.42%', up:false, signal:'HOLD'},
+  {name:'SOLANA', px:'142.30', chg:'+2.81%', up:true, signal:'HOLD'},
+  {name:'BNB', px:'588.10', chg:'-0.15%', up:false, signal:'HOLD'},
+  {name:'XRP', px:'0.5124', chg:'+0.63%', up:true, signal:'HOLD'},
+];
+const wl = document.getElementById('watchlist');
+watchlist.forEach(a=>{
+  const el = document.createElement('div');
+  el.className = 'row-hover flex items-center justify-between px-2 py-2 rounded-md cursor-pointer transition';
+  el.innerHTML = `
+    <div>
+      <div class="text-xs font-semibold">${a.name}</div>
+      <div class="text-[10px] mono text-[var(--txt-2)]">${a.px}</div>
+    </div>
+    <div class="text-right">
+      <div class="text-[10px] mono ${a.up? 'text-[var(--up)]':'text-[var(--down)]'}">${a.chg}</div>
+      <div class="text-[9px] mono text-[var(--txt-2)] mt-0.5">${a.signal}</div>
+    </div>`;
+  wl.appendChild(el);
+});
+
+// ---------- Trade Log (sample) ----------
+const trades = [
+  {sym:'BANKNIFTY', type:'CALL', pnl:1240, time:'14:12'},
+  {sym:'NIFTY50', type:'PUT', pnl:-380, time:'12:45'},
+  {sym:'BITCOIN', type:'CALL', pnl:620, time:'11:20'},
+  {sym:'RELIANCE', type:'PUT', pnl:-150, time:'10:05'},
+];
+const logEl = document.getElementById('trade-log');
+trades.forEach(t=>{
+  const up = t.pnl >= 0;
+  const el = document.createElement('div');
+  el.className = 'flex items-center justify-between text-xs px-2 py-2 rounded-md bg-[var(--bg-2)]';
+  el.innerHTML = `
+    <div>
+      <div class="font-medium">${t.sym} <span class="text-[10px] text-[var(--txt-2)]">${t.type}</span></div>
+      <div class="text-[10px] mono text-[var(--txt-2)]">${t.time}</div>
+    </div>
+    <div class="mono font-semibold ${up? 'text-[var(--up)]':'text-[var(--down)]'}">${up?'+':''}${t.pnl}</div>`;
+  logEl.appendChild(el);
+});
+
+// ---------- Candlestick Chart ----------
+const chartEl = document.getElementById('chart');
+const chart = LightweightCharts.createChart(chartEl, {
+  layout:{ background:{color:'transparent'}, textColor:'#8B96A5', fontFamily:'JetBrains Mono, monospace', fontSize:11 },
+  grid:{ vertLines:{color:'#161C26'}, horzLines:{color:'#161C26'} },
+  rightPriceScale:{ borderColor:'#232B37' },
+  timeScale:{ borderColor:'#232B37', timeVisible:true },
+  crosshair:{ mode: LightweightCharts.CrosshairMode.Normal },
+  handleScroll:false, handleScale:false,
+});
+chart.applyOptions({ width: chartEl.clientWidth });
+
+const candleSeries = chart.addCandlestickSeries({
+  upColor:'#26D07C', downColor:'#F3524A', borderVisible:false,
+  wickUpColor:'#26D07C', wickDownColor:'#F3524A',
+});
+const ema9Series = chart.addLineSeries({ color:'#4C8DFF', lineWidth:1.5 });
+const ema21Series = chart.addLineSeries({ color:'#B084FF', lineWidth:1.5 });
+
+// Generate synthetic 5m OHLC data resembling NIFTY session
+function genData(n){
+  let t = Math.floor(Date.now()/1000) - n*300;
+  let price = 24230;
+  const candles = [], closes = [];
+  for(let i=0;i<n;i++){
+    const open = price;
+    const drift = (Math.sin(i/9)*6) + (Math.random()-0.5)*10;
+    const close = open + drift;
+    const high = Math.max(open, close) + Math.random()*6;
+    const low = Math.min(open, close) - Math.random()*6;
+    candles.push({time:t, open, high, low, close});
+    closes.push(close);
+    price = close; t += 300;
+  }
+  return {candles, closes};
+}
+function ema(values, period){
+  const k = 2/(period+1);
+  let prev = values[0];
+  return values.map((v,i)=>{ prev = i===0? v : v*k + prev*(1-k); return prev; });
+}
+function rsi(values, period=14){
+  let gains=0, losses=0;
+  const out = new Array(values.length).fill(50);
+  for(let i=1;i<values.length;i++){
+    const diff = values[i]-values[i-1];
+    const g = Math.max(diff,0), l = Math.max(-diff,0);
+    if(i<=period){ gains+=g; losses+=l; if(i===period){ out[i]=100-100/(1+ (gains/period)/((losses/period)||1) ); } }
+    else{
+      gains = (gains*(period-1)+g)/period;
+      losses = (losses*(period-1)+l)/period;
+      out[i] = 100 - 100/(1+ (gains/(losses||0.0001)) );
+    }
+  }
+  return out;
+}
+
+const {candles, closes} = genData(120);
+candleSeries.setData(candles);
+const ema9 = ema(closes,9), ema21 = ema(closes,21);
+ema9Series.setData(candles.map((c,i)=>({time:c.time, value:ema9[i]})));
+ema21Series.setData(candles.map((c,i)=>({time:c.time, value:ema21[i]})));
+chart.timeScale().fitContent();
+
+// RSI sub-chart
+const rsiEl = document.getElementById('rsi-chart');
+const rsiChart = LightweightCharts.createChart(rsiEl, {
+  layout:{ background:{color:'transparent'}, textColor:'#8B96A5', fontFamily:'JetBrains Mono, monospace', fontSize:10 },
+  grid:{ vertLines:{color:'#161C26'}, horzLines:{color:'#161C26'} },
+  rightPriceScale:{ borderColor:'#232B37' },
+  timeScale:{ borderColor:'#232B37', visible:false },
+  handleScroll:false, handleScale:false,
+});
+rsiChart.applyOptions({ width: rsiEl.clientWidth });
+const rsiSeries = rsiChart.addLineSeries({ color:'#F0B429', lineWidth:1.5 });
+const rsiVals = rsi(closes);
+rsiSeries.setData(candles.map((c,i)=>({time:c.time, value:rsiVals[i]})));
+const line58 = rsiChart.addLineSeries({color:'#5A6472', lineWidth:1, lineStyle:2});
+line58.setData(candles.map(c=>({time:c.time, value:58})));
+
+window.addEventListener('resize', ()=>{
+  chart.applyOptions({width: chartEl.clientWidth});
+  rsiChart.applyOptions({width: rsiEl.clientWidth});
+});
+chart.timeScale().subscribeVisibleLogicalRangeChange(range=>{
+  rsiChart.timeScale().setVisibleLogicalRange(range);
+});
+</script>
+</body>
+</html>

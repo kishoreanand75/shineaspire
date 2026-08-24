@@ -1,0 +1,839 @@
+[
+  {
+    "timestamp": "2026-08-23T15:30:55.426383+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 15:25:00",
+    "signal": "HOLD",
+    "confidence": 0.649,
+    "reason": "Model confidence 0.65 below 0.7 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T15:35:03.713777+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 15:30:00",
+    "signal": "HOLD",
+    "confidence": null,
+    "reason": "Body ratio 0.22 < 0.6 (weak/doji candle)",
+    "htf_trend": "UNKNOWN"
+  },
+  {
+    "timestamp": "2026-08-23T15:40:04.373242+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 15:35:00",
+    "signal": "HOLD",
+    "confidence": 0.584,
+    "reason": "Model confidence 0.58 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T15:45:09.032466+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 15:40:00",
+    "signal": "HOLD",
+    "confidence": null,
+    "reason": "Body ratio 0.08 < 0.6 (weak/doji candle)",
+    "htf_trend": "UNKNOWN"
+  },
+  {
+    "timestamp": "2026-08-23T15:50:07.582132+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 15:45:00",
+    "signal": "HOLD",
+    "confidence": 0.623,
+    "reason": "Model confidence 0.62 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T15:55:08.352549+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 15:50:00",
+    "signal": "HOLD",
+    "confidence": 0.656,
+    "reason": "Model confidence 0.66 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T16:00:08.513738+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 15:55:00",
+    "signal": "HOLD",
+    "confidence": null,
+    "reason": "Body ratio 0.43 < 0.6 (weak/doji candle)",
+    "htf_trend": "UNKNOWN"
+  },
+  {
+    "timestamp": "2026-08-23T16:05:08.224180+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 16:00:00",
+    "signal": "HOLD",
+    "confidence": 0.582,
+    "reason": "Model confidence 0.58 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T16:10:03.111818+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 16:05:00",
+    "signal": "HOLD",
+    "confidence": 0.628,
+    "reason": "Model confidence 0.63 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T16:15:02.229385+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 16:10:00",
+    "signal": "HOLD",
+    "confidence": 0.2,
+    "reason": "Model confidence 0.20 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T16:20:06.064185+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 16:15:00",
+    "signal": "HOLD",
+    "confidence": 0.208,
+    "reason": "Model confidence 0.21 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T16:25:06.990453+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 16:20:00",
+    "signal": "BUY_CALL",
+    "confidence": 0.197,
+    "reason": "Paper experiment: directional probability 0.20; strict filter status body=0.50, ADX=31.6, HTF=BULLISH",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T16:30:08.600911+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 16:25:00",
+    "signal": "BUY_CALL",
+    "confidence": 0.199,
+    "reason": "Paper experiment: directional probability 0.20; strict filter status body=0.87, ADX=30.4, HTF=BULLISH",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T16:35:04.357764+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 16:30:00",
+    "signal": "HOLD",
+    "confidence": 0.237,
+    "reason": "Model confidence 0.24 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T16:40:04.369599+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 16:35:00",
+    "signal": "HOLD",
+    "confidence": 0.216,
+    "reason": "Model confidence 0.22 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T16:45:03.394980+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 16:40:00",
+    "signal": "HOLD",
+    "confidence": 0.234,
+    "reason": "Model confidence 0.23 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T16:50:03.595313+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 16:45:00",
+    "signal": "HOLD",
+    "confidence": 0.249,
+    "reason": "Model confidence 0.25 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T16:55:06.405798+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 16:50:00",
+    "signal": "HOLD",
+    "confidence": 0.265,
+    "reason": "Model confidence 0.26 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T17:00:07.654404+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 16:55:00",
+    "signal": "HOLD",
+    "confidence": 0.261,
+    "reason": "Model confidence 0.26 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T17:05:05.967800+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 17:00:00",
+    "signal": "HOLD",
+    "confidence": 0.212,
+    "reason": "Model confidence 0.21 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T17:10:09.640523+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 17:05:00",
+    "signal": "HOLD",
+    "confidence": 0.214,
+    "reason": "Model confidence 0.21 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T17:15:04.820942+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 17:10:00",
+    "signal": "HOLD",
+    "confidence": 0.214,
+    "reason": "Model confidence 0.21 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T17:20:04.335361+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 17:15:00",
+    "signal": "HOLD",
+    "confidence": 0.215,
+    "reason": "Model confidence 0.21 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T17:25:05.474022+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 17:20:00",
+    "signal": "HOLD",
+    "confidence": 0.204,
+    "reason": "Model confidence 0.20 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T17:30:07.623867+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 17:25:00",
+    "signal": "HOLD",
+    "confidence": 0.201,
+    "reason": "Model confidence 0.20 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T17:35:04.086619+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 17:30:00",
+    "signal": "HOLD",
+    "confidence": 0.214,
+    "reason": "Model confidence 0.21 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T17:40:05.004292+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 17:35:00",
+    "signal": "BUY_CALL",
+    "confidence": 0.207,
+    "reason": "Paper experiment: directional probability 0.21; strict filter status body=0.17, ADX=25.4, HTF=BULLISH",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T17:45:07.960916+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 17:40:00",
+    "signal": "HOLD",
+    "confidence": 0.207,
+    "reason": "Model confidence 0.21 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T17:50:05.878075+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 17:45:00",
+    "signal": "BUY_CALL",
+    "confidence": 0.21,
+    "reason": "Paper experiment: directional probability 0.21; strict filter status body=0.01, ADX=25.9, HTF=BULLISH",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T17:55:02.969631+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 17:50:00",
+    "signal": "HOLD",
+    "confidence": 0.22,
+    "reason": "Model confidence 0.22 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T18:00:05.069313+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 17:55:00",
+    "signal": "HOLD",
+    "confidence": 0.231,
+    "reason": "Model confidence 0.23 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T18:05:08.607469+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 18:00:00",
+    "signal": "BUY_CALL",
+    "confidence": 0.208,
+    "reason": "Paper experiment: directional probability 0.21; strict filter status body=0.11, ADX=26.6, HTF=BULLISH",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T18:10:07.615446+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 18:05:00",
+    "signal": "HOLD",
+    "confidence": 0.215,
+    "reason": "Model confidence 0.22 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T18:15:05.512918+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 18:10:00",
+    "signal": "HOLD",
+    "confidence": 0.209,
+    "reason": "Model confidence 0.21 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T18:20:09.462306+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 18:15:00",
+    "signal": "HOLD",
+    "confidence": 0.298,
+    "reason": "Model confidence 0.30 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T18:25:04.000725+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 18:20:00",
+    "signal": "HOLD",
+    "confidence": 0.3,
+    "reason": "Model confidence 0.30 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T18:30:04.412592+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 18:25:00",
+    "signal": "HOLD",
+    "confidence": 0.305,
+    "reason": "Model confidence 0.30 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T18:35:04.466061+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 18:30:00",
+    "signal": "HOLD",
+    "confidence": 0.315,
+    "reason": "Model confidence 0.31 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T18:40:04.437793+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 18:35:00",
+    "signal": "HOLD",
+    "confidence": 0.337,
+    "reason": "Model confidence 0.34 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T18:45:04.844110+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 18:40:00",
+    "signal": "HOLD",
+    "confidence": 0.31,
+    "reason": "Model confidence 0.31 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T18:50:06.648805+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 18:45:00",
+    "signal": "HOLD",
+    "confidence": 0.359,
+    "reason": "Model confidence 0.36 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T18:55:05.209973+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 18:50:00",
+    "signal": "HOLD",
+    "confidence": 0.36,
+    "reason": "Model confidence 0.36 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T19:00:08.083434+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 18:55:00",
+    "signal": "HOLD",
+    "confidence": 0.36,
+    "reason": "Model confidence 0.36 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-23T19:05:08.327705+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-23 19:00:00",
+    "signal": "HOLD",
+    "confidence": 0.296,
+    "reason": "Model confidence 0.30 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T06:38:51.798794+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 06:30:00",
+    "signal": "HOLD",
+    "confidence": 0.32,
+    "reason": "Model confidence 0.32 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T06:40:03.467719+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 06:35:00",
+    "signal": "HOLD",
+    "confidence": 0.328,
+    "reason": "Model confidence 0.33 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T06:45:10.072064+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 06:40:00",
+    "signal": "HOLD",
+    "confidence": 0.344,
+    "reason": "Model confidence 0.34 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T06:50:04.651045+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 06:45:00",
+    "signal": "HOLD",
+    "confidence": 0.322,
+    "reason": "Model confidence 0.32 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T06:55:09.868473+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 06:50:00",
+    "signal": "HOLD",
+    "confidence": 0.32,
+    "reason": "Model confidence 0.32 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T07:00:08.707474+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 06:55:00",
+    "signal": "HOLD",
+    "confidence": 0.332,
+    "reason": "Model confidence 0.33 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T07:05:06.711252+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 07:00:00",
+    "signal": "HOLD",
+    "confidence": 0.316,
+    "reason": "Model confidence 0.32 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T07:10:06.070276+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 07:05:00",
+    "signal": "HOLD",
+    "confidence": 0.321,
+    "reason": "Model confidence 0.32 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T07:15:15.531870+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 07:10:00",
+    "signal": "HOLD",
+    "confidence": 0.326,
+    "reason": "Model confidence 0.33 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T07:20:12.639909+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 07:15:00",
+    "signal": "HOLD",
+    "confidence": 0.31,
+    "reason": "Model confidence 0.31 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T07:25:13.001318+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 07:20:00",
+    "signal": "HOLD",
+    "confidence": 0.32,
+    "reason": "Model confidence 0.32 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T07:30:12.407115+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 07:25:00",
+    "signal": "HOLD",
+    "confidence": 0.323,
+    "reason": "Model confidence 0.32 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T07:35:06.896771+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 07:30:00",
+    "signal": "HOLD",
+    "confidence": 0.321,
+    "reason": "Model confidence 0.32 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T07:40:18.772811+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 07:35:00",
+    "signal": "HOLD",
+    "confidence": 0.321,
+    "reason": "Model confidence 0.32 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T07:45:04.553401+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 07:40:00",
+    "signal": "HOLD",
+    "confidence": 0.329,
+    "reason": "Model confidence 0.33 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T07:50:06.553589+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 07:45:00",
+    "signal": "HOLD",
+    "confidence": 0.318,
+    "reason": "Model confidence 0.32 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T07:55:15.541780+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 07:50:00",
+    "signal": "HOLD",
+    "confidence": 0.32,
+    "reason": "Model confidence 0.32 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T08:00:08.955092+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 07:55:00",
+    "signal": "HOLD",
+    "confidence": 0.309,
+    "reason": "Model confidence 0.31 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T08:05:05.276292+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 08:00:00",
+    "signal": "HOLD",
+    "confidence": 0.312,
+    "reason": "Model confidence 0.31 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T08:10:09.594187+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 08:05:00",
+    "signal": "HOLD",
+    "confidence": 0.318,
+    "reason": "Model confidence 0.32 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T08:15:03.926323+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 08:10:00",
+    "signal": "HOLD",
+    "confidence": 0.312,
+    "reason": "Model confidence 0.31 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T08:20:05.575358+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 08:15:00",
+    "signal": "HOLD",
+    "confidence": 0.304,
+    "reason": "Model confidence 0.30 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T08:25:07.366158+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 08:20:00",
+    "signal": "HOLD",
+    "confidence": 0.267,
+    "reason": "Model confidence 0.27 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T08:30:09.173913+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 08:25:00",
+    "signal": "HOLD",
+    "confidence": 0.285,
+    "reason": "Model confidence 0.29 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T08:35:06.499558+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 08:30:00",
+    "signal": "HOLD",
+    "confidence": 0.295,
+    "reason": "Model confidence 0.29 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T08:40:03.598470+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 08:35:00",
+    "signal": "HOLD",
+    "confidence": 0.292,
+    "reason": "Model confidence 0.29 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T08:45:07.687807+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 08:40:00",
+    "signal": "HOLD",
+    "confidence": 0.305,
+    "reason": "Model confidence 0.31 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T08:50:04.770989+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 08:45:00",
+    "signal": "HOLD",
+    "confidence": 0.352,
+    "reason": "Model confidence 0.35 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T08:55:12.038247+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 08:50:00",
+    "signal": "HOLD",
+    "confidence": 0.291,
+    "reason": "Model confidence 0.29 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T09:00:06.200751+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 08:55:00",
+    "signal": "HOLD",
+    "confidence": 0.29,
+    "reason": "Model confidence 0.29 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T09:05:10.775065+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 09:00:00",
+    "signal": "HOLD",
+    "confidence": 0.286,
+    "reason": "Model confidence 0.29 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T09:10:12.118731+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 09:05:00",
+    "signal": "HOLD",
+    "confidence": 0.263,
+    "reason": "Model confidence 0.26 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T09:15:06.844749+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 09:10:00",
+    "signal": "HOLD",
+    "confidence": 0.265,
+    "reason": "Model confidence 0.27 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T09:20:04.997510+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 09:15:00",
+    "signal": "HOLD",
+    "confidence": 0.29,
+    "reason": "Model confidence 0.29 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T09:25:11.515688+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 09:20:00",
+    "signal": "HOLD",
+    "confidence": 0.299,
+    "reason": "Model confidence 0.30 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T09:30:06.990628+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 09:25:00",
+    "signal": "HOLD",
+    "confidence": 0.298,
+    "reason": "Model confidence 0.30 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T09:35:12.613419+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 09:30:00",
+    "signal": "HOLD",
+    "confidence": 0.297,
+    "reason": "Model confidence 0.30 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T09:40:12.477588+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 09:35:00",
+    "signal": "HOLD",
+    "confidence": 0.27,
+    "reason": "Model confidence 0.27 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T09:45:07.041050+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 09:40:00",
+    "signal": "HOLD",
+    "confidence": 0.271,
+    "reason": "Model confidence 0.27 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T09:50:07.930240+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 09:45:00",
+    "signal": "HOLD",
+    "confidence": 0.31,
+    "reason": "Model confidence 0.31 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T09:55:07.612900+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 09:50:00",
+    "signal": "HOLD",
+    "confidence": 0.296,
+    "reason": "Model confidence 0.30 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T10:00:09.819287+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 09:55:00",
+    "signal": "HOLD",
+    "confidence": 0.297,
+    "reason": "Model confidence 0.30 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T10:05:03.609575+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 10:00:00",
+    "signal": "HOLD",
+    "confidence": 0.284,
+    "reason": "Model confidence 0.28 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T10:10:09.607888+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 10:05:00",
+    "signal": "HOLD",
+    "confidence": 0.282,
+    "reason": "Model confidence 0.28 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T10:15:04.048566+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 10:10:00",
+    "signal": "HOLD",
+    "confidence": 0.274,
+    "reason": "Model confidence 0.27 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T10:20:09.039839+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 10:15:00",
+    "signal": "HOLD",
+    "confidence": 0.284,
+    "reason": "Model confidence 0.28 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T10:25:06.962549+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 10:20:00",
+    "signal": "HOLD",
+    "confidence": 0.288,
+    "reason": "Model confidence 0.29 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T10:30:05.181469+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 10:25:00",
+    "signal": "HOLD",
+    "confidence": 0.322,
+    "reason": "Model confidence 0.32 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T10:35:03.807429+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 10:30:00",
+    "signal": "HOLD",
+    "confidence": 0.338,
+    "reason": "Model confidence 0.34 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  }
+]

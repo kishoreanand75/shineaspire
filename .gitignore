@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+*.log
+*.db
+*.lock
+.envactive_trade.json
+.env
+.env.*
+__pycache__/
+*.pyc
