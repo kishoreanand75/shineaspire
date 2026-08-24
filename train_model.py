@@ -4,7 +4,7 @@ import numpy as np
 import ta
 from xgboost import XGBClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import accuracy_score, classification_report, precision_score
 import config
 import data_feed
 from signal_engine import get_timeframe_filters
@@ -256,12 +256,25 @@ def train_institutional_ai():
 
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
+    directional_mask = np.isin(y_pred, [0, 2])
+    directional_precision = (
+        precision_score(y_test[directional_mask], y_pred[directional_mask], labels=[0, 2],
+                        average="weighted", zero_division=0)
+        if directional_mask.any() else 0.0
+    )
     print(f"\n✅ Training Complete! Test Accuracy: {accuracy*100:.2f}%")
+    print(f"Directional precision (CALL/PUT only): {directional_precision*100:.2f}%")
     print("\nPer-class precision/recall (0=PUT, 1=HOLD, 2=CALL):")
     print(classification_report(y_test, y_pred, target_names=["PUT", "HOLD", "CALL"], zero_division=0))
     print("⚠️  Note: accuracy alone doesn't tell you if this is profitable - check backtester.py metrics too.")
     print("⚠️  What matters most: precision on CALL and PUT (when the model DOES fire a")
     print("    signal, how often is it right) -- not overall accuracy, which HOLD dominates.\n")
+
+    if directional_precision < config.MIN_VALIDATED_DIRECTIONAL_PRECISION:
+        raise RuntimeError(
+            f"Model rejected: directional precision {directional_precision:.2%} is below "
+            f"the required {config.MIN_VALIDATED_DIRECTIONAL_PRECISION:.2%}."
+        )
 
     model.save_model("xgboost_model.json")
     print("✅ Model saved as 'xgboost_model.json' - feature set now matches multi_strategy.py exactly.")

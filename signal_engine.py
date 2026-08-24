@@ -37,6 +37,7 @@ import numpy as np
 import pandas as pd
 import ta
 import config
+import time
 
 try:
     import data_feed as _data_feed  # for fetch_htf_trend() -- optional at import time
@@ -85,6 +86,8 @@ TIMEFRAME_FILTERS = {
 }
 LUNCH_START_HOUR = 11
 LUNCH_END_HOUR = 13
+_HTF_CACHE = {}
+_HTF_CACHE_TTL_SECONDS = 300
 
 
 def is_crypto_asset(asset_symbol: str) -> bool:
@@ -285,7 +288,13 @@ def decide_from_row(df_feat: pd.DataFrame, i: int, asset_symbol: str = "", model
     resolved_htf_trend = htf_trend or "UNKNOWN"
     if htf_trend is None and REQUIRE_HTF_ALIGNMENT and _data_feed is not None:
         try:
-            htf_info = _data_feed.fetch_htf_trend(asset_symbol, htf=HTF_TIMEFRAME) if asset_symbol else None
+            cache_key = (asset_symbol, HTF_TIMEFRAME)
+            cached = _HTF_CACHE.get(cache_key)
+            if cached and time.monotonic() - cached[0] < _HTF_CACHE_TTL_SECONDS:
+                htf_info = cached[1]
+            else:
+                htf_info = _data_feed.fetch_htf_trend(asset_symbol, htf=HTF_TIMEFRAME) if asset_symbol else None
+                _HTF_CACHE[cache_key] = (time.monotonic(), htf_info or {})
             if htf_info:
                 resolved_htf_trend = htf_info.get("trend", "UNKNOWN")
         except Exception:

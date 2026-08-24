@@ -32,6 +32,7 @@ PAPER_SCHEDULED_INTERVAL_MINUTES = 5
 PAPER_SCHEDULED_MAX_CONCURRENT_POSITIONS = 4
 MIN_PAPER_PROFIT_FACTOR = 1.0      # Paper execution requires a positive validated edge
 MAX_PAPER_DRAWDOWN_PCT = 15.0      # Paper execution is blocked beyond this drawdown
+MIN_VALIDATED_DIRECTIONAL_PRECISION = 0.55  # Never deploy a model below 55% CALL/PUT precision
 BINANCE_TAKER_FEE = 0.00075        # Standard Binance spot taker fee per side
 ALLOW_UNVALIDATED_PAPER_TRADING = True  # Collect paper evidence before real-mode review
 AUTO_RETRAIN_ENABLED = True             # Retrain the paper model in the background

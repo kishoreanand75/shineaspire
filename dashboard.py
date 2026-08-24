@@ -320,7 +320,11 @@ else:
     # Always forecast the next candle from completed candles only. The current
     # forming candle is displayed on the chart but must not move the forecast.
     signal_input = signal_df.iloc[:-1]
-    signal_result = generate_signal(signal_input, asset_symbol=config.DEFAULT_SYMBOL, model=multi_strategy.model)
+    signal_features = build_features(signal_input)
+    signal_result = decide_from_row(
+        signal_features, len(signal_features) - 1,
+        asset_symbol=config.DEFAULT_SYMBOL, model=multi_strategy.model,
+    )
     signal_name = signal_result.get("signal", "HOLD")
     signal_candle_time = display_time(signal_df.index[-2])
     signal_entry_price = float(signal_df.iloc[-2]["Close"])
@@ -337,7 +341,7 @@ else:
     class_probabilities = {0: None, 1: None, 2: None}
     if multi_strategy.model is not None:
         try:
-            model_features = build_features(signal_input).iloc[-1]
+            model_features = signal_features.iloc[-1]
             feature_values = pd.DataFrame([{column: model_features[column] for column in multi_strategy.model.feature_names_in_}]).fillna(0)
             probabilities = multi_strategy.model.predict_proba(feature_values)[0]
             class_probabilities = {int(label): float(probability) for label, probability in zip(multi_strategy.model.classes_, probabilities)}
@@ -360,17 +364,16 @@ else:
         signal_name = "HOLD"
     last_confirmed = None
     if signal_name == "HOLD":
-        signal_features = build_features(signal_df)
+        historical_features = build_features(signal_df)
         historical_htf_trend = signal_result.get("htf_trend", "UNKNOWN")
-        for candle_index in range(len(signal_features) - 2, max(24, len(signal_features) - 51), -1):
+        for candle_index in range(len(historical_features) - 2, max(24, len(historical_features) - 51), -1):
             historical_result = decide_from_row(
-                signal_features, candle_index, asset_symbol=config.DEFAULT_SYMBOL,
+                historical_features, candle_index, asset_symbol=config.DEFAULT_SYMBOL,
                 model=multi_strategy.model, htf_trend=historical_htf_trend,
             )
             if historical_result.get("signal") in ("BUY_CALL", "BUY_PUT"):
-                last_confirmed = (signal_features.index[candle_index], historical_result)
+                last_confirmed = (historical_features.index[candle_index], historical_result)
                 break
-    signal_features = build_features(signal_input)
     signal_row = signal_features.iloc[-1]
     atr_value = float(signal_row.get("ATR", 0) or 0)
     if not pd.notna(atr_value) or atr_value <= 0:
@@ -402,18 +405,10 @@ else:
 
     if confidence is None:
         confidence_text = "No model score"
-    elif high_confidence_forecast:
-        confidence_text = f"{float(confidence):.1%} directional"
-    elif (
-        class_probabilities.get(1) is not None
-        and float(class_probabilities.get(1) or 0.0) >= max(
-            float(class_probabilities.get(0) or 0.0),
-            float(class_probabilities.get(2) or 0.0),
-        )
-    ):
-        confidence_text = f"{float(confidence):.1%} HOLD-dominant"
+    elif not high_confidence_forecast:
+        confidence_text = f"{float(confidence):.1%} directional (<{display_threshold:.0%})"
     else:
-        confidence_text = f"{float(confidence):.1%} directional (below 55%)"
+        confidence_text = f"{float(confidence):.1%} directional"
     entry_label = "Indicative Next Entry" if signal_name != "HOLD" else "Latest Closed Price"
     entry_text = f"${signal_entry_price:,.2f}"
     stop_text = f"${stop_price:,.2f}" if stop_price is not None else "N/A"
@@ -542,19 +537,14 @@ fixed_starting_capital = float(getattr(config, "BTC_START_CAPITAL_USD", 20.00))
 risk_budget = fixed_starting_capital * float(getattr(config, "RISK_PER_TRADE_PCT", 0.005))
 display_threshold = config.PAPER_MIN_ACTIONABLE_CONFIDENCE if config.PAPER_TRADING_MODE else config.MIN_ACTIONABLE_CONFIDENCE
 signal_direction = {"BUY_CALL": "CALL", "BUY_PUT": "PUT", "HOLD": "HOLD"}.get(signal_name, "HOLD")
-if signal_name == "HOLD":
-    signal_direction = (
-        "WATCH PUT" if class_probabilities.get(0, 0.0) > class_probabilities.get(2, 0.0)
-        else "WATCH CALL"
-    )
 signal_status = "TRADE NEXT CANDLE" if decision_title == "TRADE NEXT CANDLE" else "WAIT"
-if signal_name == "HOLD" and confidence is not None:
+if signal_name == "HOLD" and confidence is not None and not high_confidence_forecast:
     signal_status = f"WAIT ({float(confidence):.1%} < {display_threshold:.0%})"
 current_row = {
     "Time": f"NEXT: {display_time(next_candle_start)}",
     "Entry Time": display_time(next_candle_start),
     "Direction": signal_direction,
-    "Win Probability": f"{float(confidence):.1%}" if confidence is not None else "--",
+    "Win Probability": f"{float(confidence):.1%}" if high_confidence_forecast else "--",
     "Entry": f"${signal_entry_price:,.2f}",
     "Stop Loss": f"${stop_price:,.2f}" if stop_price is not None else "--",
     "Target": f"${target_price:,.2f}" if target_price is not None else "--",
@@ -629,11 +619,11 @@ with st.expander("Recent trade outcomes", expanded=False):
                 if pd.isna(entry_value) or pd.isna(stop_value) or pd.isna(target_value):
                     continue
 
+                confidence_value = pd.to_numeric(row.get("AI_Confidence"), errors="coerce")
                 outcome = str(row.get("Outcome") or row.get("Status") or "").upper()
                 if outcome not in {"WIN", "LOSS", "PENDING"}:
                     continue
 
-                confidence_value = pd.to_numeric(row.get("AI_Confidence"), errors="coerce")
                 history_rows.append({
                     "Time": display_time(row.get("Candle_Time")),
                     "Entry Time": "Completed",
