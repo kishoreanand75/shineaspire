@@ -65,7 +65,7 @@ FEATURE_COLUMNS = [
     'Vol_Delta_lag1', 'Vol_Delta_lag2',
 ]
 
-MIN_MODEL_CONFIDENCE = 0.70  # production gate: below this -> HOLD, no exceptions.
+MIN_MODEL_CONFIDENCE = 0.55  # actionable gate: below this -> HOLD, no exceptions.
 ADX_TREND_MIN = 18.0  # TEMP DIAGNOSTIC VALUE (was 22.0), same reasoning as above.
 BODY_RATIO_MIN = 0.60
 MIN_ATR_PCT_OF_PRICE = 0.0015

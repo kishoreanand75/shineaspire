@@ -12092,5 +12092,4105 @@
     "rsi": 68.28915000174865,
     "vwap_dist_pct": 2.112369317467887,
     "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:36:43.312408+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:36:52.083913+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:36:59.800453+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:37:07.592090+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:37:15.261414+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:37:22.881885+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:37:30.919820+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:37:38.937231+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:37:47.734509+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:37:55.386233+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:38:02.477368+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:38:09.994705+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:38:16.959776+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:38:24.008238+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:38:34.969807+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:38:47.857473+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:38:57.811069+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:39:05.032354+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:39:17.325727+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:39:27.845036+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:39:48.451179+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:40:04.952289+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.28915000174865,
+    "vwap_dist_pct": 2.112369317467887,
+    "candle_body_ratio": 0.5493489846859437
+  },
+  {
+    "timestamp": "2026-08-24T14:40:16.058984+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:40:25.889455+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:40:33.463770+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:40:40.747575+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:40:48.291188+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:40:55.567858+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:41:02.743919+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:41:14.357716+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:41:30.527655+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:41:39.083007+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:41:46.717829+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:41:54.205519+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:42:01.642385+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:42:09.094689+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:42:28.208867+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:42:45.712879+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:43:43.592940+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:44:20.805130+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:44:35.224738+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:44:52.702127+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:45:20.830966+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.70425343783185,
+    "vwap_dist_pct": 2.117665699836048,
+    "candle_body_ratio": 0.13955997560632474
+  },
+  {
+    "timestamp": "2026-08-24T14:45:27.951147+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:45:35.170864+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:45:42.388280+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:45:49.411070+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:45:56.355259+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:46:03.474005+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:46:10.702338+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:46:17.629266+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:46:24.575225+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:46:31.491398+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:46:38.622694+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:46:45.570526+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:46:52.717551+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:46:59.702684+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:47:06.766386+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:47:13.897444+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:47:20.823854+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:47:27.910296+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:47:35.116729+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:47:42.430595+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:47:50.069796+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:47:57.083779+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:48:04.010328+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:48:11.205738+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:48:20.210649+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:48:28.098855+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:48:35.841328+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:48:43.264730+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:48:50.355805+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:48:57.548815+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:49:04.776256+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:49:11.776347+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:49:19.088219+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:49:26.284673+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:49:33.492661+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:49:40.556468+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:49:47.626621+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:49:54.694762+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 68.5875370547844,
+    "vwap_dist_pct": 2.082283688818989,
+    "candle_body_ratio": 0.010024641577065953
+  },
+  {
+    "timestamp": "2026-08-24T14:50:02.044336+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:50:09.118699+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:50:16.259815+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:50:23.289839+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:50:30.401922+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:50:37.614073+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:50:44.605749+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:50:51.845589+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:51:00.612320+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:51:07.543991+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:51:14.691275+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:51:21.716806+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:51:28.765251+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:51:35.931730+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:51:43.626447+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:51:50.962899+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:51:57.906941+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:52:04.890314+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:52:11.953802+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:52:18.914355+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:52:25.919253+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:52:32.761366+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:52:39.579199+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:52:46.740679+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:52:53.982896+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:53:01.329299+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:53:08.591624+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:53:15.701933+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:53:22.807732+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:53:29.998436+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:53:37.133651+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:53:44.646443+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:53:51.814492+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:53:58.986157+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:54:07.004899+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:54:14.227829+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:54:21.967964+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:54:29.333808+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:54:36.899406+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:54:44.306277+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:54:51.445128+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:54:58.923460+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.6385751832723,
+    "vwap_dist_pct": 1.9535529337389754,
+    "candle_body_ratio": 0.3223046832157492
+  },
+  {
+    "timestamp": "2026-08-24T14:55:06.208638+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:55:13.358147+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:55:20.614389+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:55:27.726684+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:55:35.734152+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:55:43.432632+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:55:50.780321+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:55:58.085747+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:56:06.001644+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:56:13.414579+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:56:20.540756+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:56:27.395540+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:56:34.633078+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:56:41.658055+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:56:48.790474+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:56:55.720106+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:57:03.126421+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:57:10.635357+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:57:18.178495+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:57:25.725893+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:57:33.159757+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:57:40.277854+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:57:47.688376+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:57:54.900255+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:58:03.015323+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:58:10.275616+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:58:17.420054+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:58:24.553266+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:58:32.916235+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:58:44.576999+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:58:53.306121+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:59:02.307379+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:59:11.708028+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:59:21.301645+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:59:32.493286+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:59:42.906430+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T14:59:55.484434+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 57.539988991424146,
+    "vwap_dist_pct": 1.5962138931950594,
+    "candle_body_ratio": 0.8800656814449784
+  },
+  {
+    "timestamp": "2026-08-24T15:10:07.678828+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:10:18.003773+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:10:28.796635+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:10:41.008564+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:10:50.988810+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:11:00.838864+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:11:11.128385+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:11:19.577159+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:11:27.806821+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:11:38.734539+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:11:50.498325+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:11:58.990254+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:12:08.018703+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:12:17.759087+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:12:27.613313+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:12:38.233924+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:12:48.828613+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:12:57.358547+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:13:05.536447+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:13:13.812502+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:13:24.588727+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:13:33.529635+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:13:44.025180+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:13:52.551588+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:14:01.042433+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:14:09.568496+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:14:17.893367+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:14:26.140679+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:14:35.443739+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:14:45.569816+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:14:54.018260+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:15:02.700603+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 63.00118226957301,
+    "vwap_dist_pct": 1.9289407457469574,
+    "candle_body_ratio": 0.2971222582025122
+  },
+  {
+    "timestamp": "2026-08-24T15:15:11.440836+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:15:19.591928+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:15:27.766512+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:15:37.733847+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:15:47.681544+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:15:56.168312+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:16:04.456995+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:16:13.344160+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:16:21.483171+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:16:29.924979+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:16:39.863437+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:16:49.888714+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:17:00.329013+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:17:10.602183+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:17:20.990659+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:17:31.800421+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:17:43.583710+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:17:54.153777+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:18:03.948453+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:18:13.908333+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:18:23.828758+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:18:34.148367+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:18:44.693665+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:18:56.606979+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:19:06.779613+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:19:16.342936+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:19:25.953801+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:19:35.938109+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:19:46.384032+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:19:56.319965+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 61.41748487267898,
+    "vwap_dist_pct": 1.8590155909356771,
+    "candle_body_ratio": 0.28156976744181983
+  },
+  {
+    "timestamp": "2026-08-24T15:20:06.928714+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:20:16.848897+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:20:26.770087+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:20:38.908873+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:20:49.604498+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:20:59.868334+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:21:10.449006+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:21:20.738881+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:21:31.081898+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:21:40.938514+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:21:50.210301+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:22:00.786546+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:22:10.008809+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:22:21.088553+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:22:31.353838+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:22:41.478187+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:22:50.168873+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:23:01.728483+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:23:11.875775+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:23:22.810034+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:23:32.832430+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:23:45.038776+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:23:54.960414+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:24:04.920792+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:24:14.938989+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:24:25.676701+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:24:36.306960+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:24:46.538569+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:24:57.070114+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 65.52117821661332,
+    "vwap_dist_pct": 2.120328563744812,
+    "candle_body_ratio": 0.7524997350104117
+  },
+  {
+    "timestamp": "2026-08-24T15:25:06.978626+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:25:18.270581+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:25:29.004272+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:25:38.548574+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:25:48.613665+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:25:59.640936+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:26:09.614084+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:26:20.628867+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:26:30.288681+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:26:40.679754+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:26:50.987703+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:27:01.856624+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:27:12.534346+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:27:22.475218+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:27:33.643395+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:27:44.598311+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:27:54.719522+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:28:04.901034+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:28:15.109754+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:28:25.120167+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:28:35.498501+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:28:47.270946+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:28:57.278334+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:29:07.198216+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:29:17.193046+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:29:27.071011+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:29:37.248319+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:29:47.524266+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:29:57.650650+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.93858811663327,
+    "vwap_dist_pct": 2.271652446631997,
+    "candle_body_ratio": 0.6315315315315839
+  },
+  {
+    "timestamp": "2026-08-24T15:30:08.232963+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:30:20.788757+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:30:32.125992+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:30:43.156397+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:30:54.728290+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:31:05.008374+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:31:14.690352+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:31:24.739001+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:31:34.750361+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:31:45.913313+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:31:55.988541+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:32:05.748401+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:32:15.828650+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:32:26.361661+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:32:36.753362+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:32:48.923466+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:32:59.848376+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:33:09.743689+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:33:18.156190+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:33:27.858566+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:33:37.639503+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:33:48.180274+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:33:58.582557+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:34:06.884763+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:34:16.268817+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:34:28.178585+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:34:40.023544+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:34:51.280376+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:35:02.049297+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 67.71574644494346,
+    "vwap_dist_pct": 2.2219267280517796,
+    "candle_body_ratio": 0.023590733590735838
+  },
+  {
+    "timestamp": "2026-08-24T15:35:12.640002+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:35:22.654077+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:35:33.978593+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:35:45.118804+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:35:54.958245+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:36:04.762093+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:36:13.123866+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:36:23.124160+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:36:33.350517+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:36:44.450755+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:36:54.578614+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:37:02.977292+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:37:11.623833+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:37:21.288744+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:37:29.621155+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:37:39.679077+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:37:49.529253+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:37:59.059052+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:38:07.413065+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:38:17.031559+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:38:26.828853+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:38:37.264152+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:38:48.018302+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:38:56.411676+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:39:04.604078+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:39:13.762778+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:39:23.628355+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:39:34.380754+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:39:45.393936+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T15:39:55.000669+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 64.65516176326746,
+    "vwap_dist_pct": 2.076081098007764,
+    "candle_body_ratio": 0.3559565217391102
+  },
+  {
+    "timestamp": "2026-08-24T17:15:05.813983+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:15:13.438490+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:15:23.326510+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:15:30.734482+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:15:38.936361+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:15:48.363181+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:15:55.943905+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:16:03.448481+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:16:13.499646+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:16:21.406027+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:16:30.003123+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:16:37.798110+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:16:45.088914+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:16:52.308476+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:16:59.998089+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:17:07.186945+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:17:14.531823+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:17:22.027428+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:17:30.081335+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:17:38.337776+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:17:45.707847+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:17:55.232722+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:18:03.775383+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:18:11.217408+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:18:19.710304+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:18:27.460745+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:18:34.639779+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:18:42.047639+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:18:50.434196+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:18:58.016113+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:19:05.414786+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:19:12.720672+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:19:19.925088+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:19:27.604654+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:19:35.963170+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:19:44.156758+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:19:51.471551+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:19:58.578401+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 45.022346339496494,
+    "vwap_dist_pct": 0.9059708789267396,
+    "candle_body_ratio": 0.6662696958592305
+  },
+  {
+    "timestamp": "2026-08-24T17:30:07.931650+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:30:15.510282+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:30:27.024962+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:30:38.867022+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:30:49.867398+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:30:57.706179+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:31:05.354373+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:31:12.814101+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:31:20.558937+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:31:28.018064+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:31:35.549229+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:31:43.121393+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:31:52.153595+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:31:59.889516+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:32:07.895557+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:32:15.511539+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:32:23.115980+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:32:31.461938+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:32:39.427746+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:32:46.965882+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:32:59.246445+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:33:12.497188+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:33:20.778817+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:33:28.803376+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:33:36.824183+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:33:44.452914+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:33:51.931717+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:33:59.471361+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:34:10.718136+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:34:25.933042+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:34:34.509746+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:34:48.065433+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
+  },
+  {
+    "timestamp": "2026-08-24T17:34:59.770454+00:00",
+    "asset": "BITCOIN",
+    "option_type": "CALL",
+    "decision": "APPROVED",
+    "reason": "APPROVED (Master Quant Model Active) [no Gemini key]",
+    "rsi": 34.65195535615442,
+    "vwap_dist_pct": 0.18569199211896312,
+    "candle_body_ratio": 0.1641038182874046
   }
 ]

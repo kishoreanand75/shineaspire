@@ -89,7 +89,10 @@ def get_snapshot():
     market_context = context_cache["value"]
     direction = {"BUY_CALL": "CALL", "BUY_PUT": "PUT"}.get(result.get("signal"), "NONE")
     confidence = result.get("confidence")
-    high_confidence = direction != "NONE" and confidence is not None and float(confidence) >= 0.85
+    high_confidence = (
+        direction != "NONE" and confidence is not None
+        and float(confidence) >= config.MIN_ACTIONABLE_CONFIDENCE
+    )
     active = _active_positions()
     stats = trade_memory.recent_stats()
     memory_allowed, memory_reason = trade_memory.should_allow_entry(direction) if direction != "NONE" else (False, "No directional signal")
@@ -99,7 +102,10 @@ def get_snapshot():
         decision_reason = "An active paper trade is open; monitoring its exit conditions."
     elif high_confidence and memory_allowed:
         decision = "TRADE NEXT CANDLE"
-        decision_reason = "Directional confidence is at least 85% and the memory risk gate passed."
+        decision_reason = (
+            f"Directional confidence is at least {config.MIN_ACTIONABLE_CONFIDENCE:.0%} "
+            "and the memory risk gate passed."
+        )
     else:
         decision = "DO NOT TRADE NEXT CANDLE"
         decision_reason = memory_reason if not memory_allowed else result.get("reason", "No qualifying setup")

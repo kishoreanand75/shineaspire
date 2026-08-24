@@ -19,8 +19,8 @@ def check_live_trading_readiness():
     Gate that decides whether 'REAL' execution mode is allowed at all, based on
     objective evidence — not vibes. Checks:
       1. At least MIN_PAPER_TRADING_DAYS of paper-trade history exists.
-      2. A backtest report file exists with win_rate >= MIN_BACKTEST_WIN_RATE
-         and max_drawdown_pct <= MAX_BACKTEST_DRAWDOWN_PCT.
+        2. A backtest report file exists with the required win rate, drawdown,
+            and profit factor.
 
     Returns dict: {"ready": bool, "reasons": [str, ...]} — "reasons" lists
     every unmet condition so the UI can show exactly what's missing.
@@ -55,6 +55,17 @@ def check_live_trading_readiness():
         metrics = backtest_report.get("metrics", {})
         win_rate = metrics.get("win_rate", 0.0)
         max_dd = abs(metrics.get("max_drawdown_pct", 100.0))
+        profit_factor = metrics.get("profit_factor", 0.0)
+        if isinstance(profit_factor, str):
+            profit_factor = 0.0
+
+        try:
+            win_rate = float(win_rate)
+            max_dd = float(max_dd)
+            profit_factor = float(profit_factor)
+        except (TypeError, ValueError):
+            reasons.append("Backtest metrics contain non-numeric values.")
+            win_rate, max_dd, profit_factor = 0.0, 100.0, 0.0
 
         if win_rate < config.MIN_BACKTEST_WIN_RATE:
             reasons.append(
@@ -63,6 +74,10 @@ def check_live_trading_readiness():
         if max_dd > config.MAX_BACKTEST_DRAWDOWN_PCT:
             reasons.append(
                 f"Backtest max drawdown {max_dd}% exceeds the allowed {config.MAX_BACKTEST_DRAWDOWN_PCT}%."
+            )
+        if profit_factor < config.MIN_PAPER_PROFIT_FACTOR:
+            reasons.append(
+                f"Backtest profit factor {profit_factor} is below the required {config.MIN_PAPER_PROFIT_FACTOR}."
             )
 
     return {"ready": len(reasons) == 0, "reasons": reasons}

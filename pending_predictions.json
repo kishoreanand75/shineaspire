@@ -1,11 +1,11 @@
 [
   {
-    "prediction_id": "20260824143515568374",
+    "prediction_id": "20260824173007998572",
     "symbol": "BTCUSDT",
-    "candle_time": "2026-08-24 14:30:00",
+    "candle_time": "2026-08-24 17:25:00",
     "direction": "BUY_CALL",
-    "entry_price": 79636.01,
-    "stop_loss": 79120.3384,
-    "take_profit": 80667.3532
+    "entry_price": 78546.0,
+    "stop_loss": 78093.3863,
+    "take_profit": 79451.2274
   }
 ]

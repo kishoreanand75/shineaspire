@@ -1,101 +1,101 @@
 {
     "status": "ACTIVE",
     "positions": {
-        "BTCUSDT_OPT_PUT_5958604": {
-            "trade_id": "20260824142005066081",
-            "entry_time": "2026-08-24 19:50:05",
-            "entry_candle_time": "2026-08-24 14:15:00",
-            "symbol": "BTCUSDT_OPT_PUT_5958604",
-            "type": "PUT",
-            "entry_price": 1583.03,
-            "entry_stock_price": 79151.65,
-            "target_stock_price": 78201.83,
-            "sl_stock_price": 79626.56,
-            "qty": 0.002016,
-            "slices": [
-                0.002016
-            ],
-            "stop_loss": 1820.48,
-            "initial_stop_loss": 1820.48,
-            "target": 1108.12,
-            "signal_confidence": 0.24,
-            "signal_reason": "Model confidence 0.24 below 0.60 threshold or predicted HOLD",
-            "market_context": {
-                "rsi": 62.84024236318846,
-                "vwap_diff": 0.016183815092721,
-                "body_ratio": 0.1720485221254291
-            },
-            "max_premium_seen": 1689.85,
-            "trailed_to_breakeven": false,
-            "last_stock_price": 79636.01,
-            "exit_candle_time": "2026-08-24 14:30:00",
-            "current_candle_time": "2026-08-24 14:30:00",
-            "current_price": 79636.01,
-            "unrealized_pnl": -0.98
-        },
-        "BTCUSDT_OPT_PUT_5958605": {
-            "trade_id": "20260824142505284020",
-            "entry_time": "2026-08-24 19:55:05",
-            "entry_candle_time": "2026-08-24 14:20:00",
-            "symbol": "BTCUSDT_OPT_PUT_5958605",
-            "type": "PUT",
-            "entry_price": 1578.76,
-            "entry_stock_price": 78938.0,
-            "target_stock_price": 77990.74,
-            "sl_stock_price": 79411.63,
-            "qty": 0.002065,
-            "slices": [
-                0.002065
-            ],
-            "stop_loss": 1815.57,
-            "initial_stop_loss": 1815.57,
-            "target": 1105.13,
-            "signal_confidence": 0.275,
-            "signal_reason": "Model confidence 0.27 below 0.60 threshold or predicted HOLD",
-            "market_context": {
-                "rsi": 56.22160299022943,
-                "vwap_diff": 0.012869805603871206,
-                "body_ratio": 0.277980171224848
-            },
-            "max_premium_seen": 1578.76,
-            "trailed_to_breakeven": false,
-            "last_stock_price": 79636.01,
-            "exit_candle_time": "2026-08-24 14:30:00",
-            "current_candle_time": "2026-08-24 14:30:00",
-            "current_price": 79636.01,
-            "unrealized_pnl": -1.44
-        },
-        "BTCUSDT_OPT_CALL_5958606": {
-            "trade_id": "20260824143411585870",
-            "entry_time": "2026-08-24 20:04:11",
-            "entry_candle_time": "2026-08-24 14:25:00",
-            "symbol": "BTCUSDT_OPT_CALL_5958606",
+        "BTCUSDT_OPT_CALL_5958645": {
+            "trade_id": "20260824174501708947",
+            "entry_time": "2026-08-24 23:15:01",
+            "entry_candle_time": "2026-08-24 17:35:00",
+            "symbol": "BTCUSDT_OPT_CALL_5958645",
             "type": "CALL",
-            "entry_price": 1587.83,
-            "entry_stock_price": 79391.73,
-            "target_stock_price": 80344.43,
-            "sl_stock_price": 78915.38,
-            "qty": 0.002087,
+            "entry_price": 1576.04,
+            "entry_stock_price": 78802.01,
+            "target_stock_price": 79747.63,
+            "sl_stock_price": 78329.2,
+            "qty": 0.001898,
             "slices": [
-                0.002087
+                0.001898
             ],
-            "stop_loss": 1349.66,
-            "initial_stop_loss": 1349.66,
-            "target": 2064.18,
-            "signal_confidence": 0.275,
-            "signal_reason": "Paper experiment: directional probability 0.27; strict filter status body=0.91, ADX=28.6, HTF=BULLISH",
+            "stop_loss": 1339.63,
+            "initial_stop_loss": 1339.63,
+            "target": 2048.85,
+            "signal_confidence": 0.381,
+            "signal_reason": "Model confidence 0.38 below 0.60 threshold or predicted HOLD",
             "market_context": {
-                "rsi": 64.72002695553036,
-                "vwap_diff": 0.018460816487371662,
-                "body_ratio": 0.9104097275171389
+                "rsi": 42.291356972474844,
+                "vwap_diff": 0.005099234478974208,
+                "body_ratio": 0.8214419380082003
             },
-            "max_premium_seen": 1709.97,
+            "max_premium_seen": 1576.04,
             "trailed_to_breakeven": false,
-            "last_stock_price": 79636.01,
-            "exit_candle_time": "2026-08-24 14:30:00",
-            "current_candle_time": "2026-08-24 14:30:00",
-            "current_price": 79636.01,
-            "unrealized_pnl": 0.51
+            "last_stock_price": 78761.14,
+            "exit_candle_time": "2026-08-24 17:55:00",
+            "current_candle_time": "2026-08-24 17:55:00",
+            "current_price": 78761.14,
+            "unrealized_pnl": -0.08
+        },
+        "BTCUSDT_OPT_CALL_5958647": {
+            "trade_id": "20260824175502459268",
+            "entry_time": "2026-08-24 23:25:02",
+            "entry_candle_time": "2026-08-24 17:45:00",
+            "symbol": "BTCUSDT_OPT_CALL_5958647",
+            "type": "CALL",
+            "entry_price": 1574.58,
+            "entry_stock_price": 78729.01,
+            "target_stock_price": 79673.76,
+            "sl_stock_price": 78256.64,
+            "qty": 0.00191,
+            "slices": [
+                0.00191
+            ],
+            "stop_loss": 1338.39,
+            "initial_stop_loss": 1338.39,
+            "target": 2046.95,
+            "signal_confidence": 0.486,
+            "signal_reason": "Model confidence 0.49 below 0.60 threshold or predicted HOLD",
+            "market_context": {
+                "rsi": 41.75038627886633,
+                "vwap_diff": 0.004151097594793252,
+                "body_ratio": 0.45603372218405913
+            },
+            "max_premium_seen": 1590.65,
+            "trailed_to_breakeven": false,
+            "last_stock_price": 78761.14,
+            "exit_candle_time": "2026-08-24 17:55:00",
+            "current_candle_time": "2026-08-24 17:55:00",
+            "current_price": 78761.14,
+            "unrealized_pnl": 0.06
+        },
+        "BTCUSDT_OPT_CALL_5958648": {
+            "trade_id": "20260824180007617013",
+            "entry_time": "2026-08-24 23:30:07",
+            "entry_candle_time": "2026-08-24 17:55:00",
+            "symbol": "BTCUSDT_OPT_CALL_5958648",
+            "type": "CALL",
+            "entry_price": 1575.22,
+            "entry_stock_price": 78761.14,
+            "target_stock_price": 79706.27,
+            "sl_stock_price": 78288.57,
+            "qty": 0.001921,
+            "slices": [
+                0.001921
+            ],
+            "stop_loss": 1338.94,
+            "initial_stop_loss": 1338.94,
+            "target": 2047.79,
+            "signal_confidence": 0.431,
+            "signal_reason": "Model confidence 0.43 below 0.60 threshold or predicted HOLD",
+            "market_context": {
+                "rsi": 43.079969820116126,
+                "vwap_diff": 0.004543794220352594,
+                "body_ratio": 0.3875788397068264
+            },
+            "max_premium_seen": 1575.22,
+            "trailed_to_breakeven": false,
+            "last_stock_price": 78761.14,
+            "exit_candle_time": "2026-08-24 17:55:00",
+            "current_candle_time": "2026-08-24 17:55:00",
+            "current_price": 78761.14,
+            "unrealized_pnl": 0.0
         }
     }
 }

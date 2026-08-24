@@ -18,14 +18,22 @@
 
 import json
 import sys
+import argparse
 import backtester
 import config
 import data_feed
 
 
 def main():
-    validation_days = 7
-    print(f"Fetching {config.DEFAULT_SYMBOL} historical data ({config.TIMEFRAME}, {validation_days} days)...")
+    parser = argparse.ArgumentParser(description="Run a BTC timeframe backtest with walk-forward validation.")
+    parser.add_argument("--timeframe", choices=config.SUPPORTED_TIMEFRAMES, default=config.TRADE_TIMEFRAME)
+    parser.add_argument("--days", type=int, default=7)
+    args = parser.parse_args()
+
+    validation_days = max(1, args.days)
+    config.TRADE_TIMEFRAME = args.timeframe
+    config.TIMEFRAME = args.timeframe
+    print(f"Fetching {config.DEFAULT_SYMBOL} historical data ({args.timeframe}, {validation_days} days)...")
     df = data_feed.fetch_btc_historical_data(config.DEFAULT_SYMBOL, config.TRADE_TIMEFRAME, days=validation_days)
 
     if df.empty:
@@ -45,7 +53,10 @@ def main():
     df.dropna(inplace=True)
 
     print(f"Got {len(df)} bars. Running one-week backtest with realistic slippage + Binance taker fees...")
-    result = backtester.run_institutional_backtest_with_slippage(df, initial_capital=100000.0, symbol=config.DEFAULT_SYMBOL)
+    result = backtester.run_institutional_backtest_with_slippage(
+        df, initial_capital=100000.0, symbol=config.DEFAULT_SYMBOL,
+        risk_per_trade_pct=config.RISK_PER_TRADE_PCT,
+    )
 
     if result is None:
         print("ERROR: Not enough data bars to run a meaningful backtest (need 30+).")
@@ -58,13 +69,16 @@ def main():
 
     print("\nRunning walk-forward validation (5 folds) to check for overfitting...")
     wf = backtester.walk_forward_validate(
-        df, backtester.run_institutional_backtest_with_slippage, n_splits=5, initial_capital=100000.0, symbol=config.DEFAULT_SYMBOL
+        df, backtester.run_institutional_backtest_with_slippage, n_splits=5,
+        initial_capital=100000.0, symbol=config.DEFAULT_SYMBOL,
+        risk_per_trade_pct=config.RISK_PER_TRADE_PCT,
     )
     print("\n=== WALK-FORWARD SUMMARY ===")
     print(json.dumps(wf.get("summary", {}), indent=2))
 
     report = {
         "generated_from": config.DEFAULT_SYMBOL,
+        "timeframe": args.timeframe,
         "validation_days": validation_days,
         "bars_used": len(df),
         "signals_in_week": result["metrics"].get("total_trades", 0),

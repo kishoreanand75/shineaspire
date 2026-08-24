@@ -234,7 +234,7 @@ class PaperBroker:
         self.max_trades_per_day = (
             config.PAPER_MAX_DAILY_TRADES if config.PAPER_TRADING_MODE else config.MAX_DAILY_TRADES
         )
-        self.max_daily_loss_limit = initial_capital * 0.02
+        self.max_daily_loss_limit = initial_capital * (config.MAX_DAILY_LOSS_PCT / 100.0)
         self.max_concurrent_positions = max_concurrent_positions
         # % of current capital risked per trade -> drives position sizing
         self.risk_per_trade_pct = risk_per_trade_pct
@@ -367,40 +367,54 @@ class PaperBroker:
         self._update_active_json()
 
     def buy_option(self, symbol, option_type, entry_price, stock_price=0.0, qty=None, stop_loss_pct=0.15, target_pct=0.30,
+                   stop_loss_price=None, target_price=None,
                    signal_confidence=None, signal_reason="", market_context=None, entry_candle_time=None):
         if self.daily_trades_count >= self.max_trades_per_day:
             print(f"\n[RISK GUARD] 🚫 Max Trades Limit ({self.max_trades_per_day}) reached for today.")
             return
 
         if self.daily_pnl <= -self.max_daily_loss_limit:
-            print(f"\n[RISK GUARD] 🚨 Hard Daily Loss Limit (-2%) hit! Bot Kill-Switch Activated.")
+            print(f"\n[RISK GUARD] 🚨 Hard Daily Loss Limit (-{config.MAX_DAILY_LOSS_PCT:.1f}%) hit! Bot Kill-Switch Activated.")
             return
 
         if not self.has_room_for_new_position(symbol):
             print(f"\n[RISK GUARD] 🚫 Max Concurrent Positions ({self.max_concurrent_positions}) reached, or {symbol} already open.")
             return
 
-        # Risk-based position sizing if qty not explicitly given
+        has_spot_levels = stop_loss_price is not None and target_price is not None and stock_price > 0
+        if has_spot_levels:
+            stop_loss_price = float(stop_loss_price)
+            target_price = float(target_price)
+            delta = 0.5
+            stop_loss = round(entry_price + (stop_loss_price - stock_price) * delta, 2)
+            target = round(entry_price + (target_price - stock_price) * delta, 2)
+            effective_stop_pct = abs(entry_price - stop_loss) / entry_price
+        elif option_type == "CALL":
+            stop_loss = round(entry_price * (1 - stop_loss_pct), 2)
+            target = round(entry_price * (1 + target_pct), 2)
+            effective_stop_pct = stop_loss_pct
+        else:
+            stop_loss = round(entry_price * (1 + stop_loss_pct), 2)
+            target = round(entry_price * (1 - target_pct), 2)
+            effective_stop_pct = stop_loss_pct
+
+        # Size from the same effective stop that this position will use.
         if qty is None:
-            qty = self.calculate_position_size(entry_price, stop_loss_pct)
+            qty = self.calculate_position_size(entry_price, effective_stop_pct)
             if qty <= 0:
                 print(f"\n[RISK GUARD] 🚫 Position size calculated as 0 for {symbol}, skipping trade.")
                 return
 
         # SEBI Slicing Validation
         child_slices = slice_order_quantity(symbol, qty)
-        
-        if option_type == "CALL":
-            stop_loss = round(entry_price * (1 - stop_loss_pct), 2)
-            target = round(entry_price * (1 + target_pct), 2)
-        else:
-            stop_loss = round(entry_price * (1 + stop_loss_pct), 2)
-            target = round(entry_price * (1 - target_pct), 2)
         now_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         trade_id = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%d%H%M%S%f")
         p_curr = "$" if "USD" in symbol or "BTC" in symbol or "ETH" in symbol else "₹"
 
-        if option_type == "CALL":
+        if has_spot_levels:
+            target_stock_price = round(target_price, 2)
+            sl_stock_price = round(stop_loss_price, 2)
+        elif option_type == "CALL":
             target_stock_price = round(stock_price + (entry_price * target_pct / 0.5), 2)
             sl_stock_price = round(stock_price - (entry_price * stop_loss_pct / 0.5), 2)
         else:
@@ -417,6 +431,7 @@ class PaperBroker:
             "entry_stock_price": round(stock_price, 2),
             "target_stock_price": target_stock_price,
             "sl_stock_price": sl_stock_price,
+            "risk_model": "ATR_SPOT_MAPPED_TO_SYNTHETIC_PREMIUM" if has_spot_levels else "LEGACY_PREMIUM_PERCENT",
             "qty": qty,
             "slices": child_slices,
             "stop_loss": stop_loss,
@@ -437,14 +452,14 @@ class PaperBroker:
             f"<b>Stock Price:</b> {p_curr}{stock_price:,.2f}\n"
             f"<b>Option Premium:</b> {p_curr}{entry_price:.2f}\n"
             f"<b>Quantity:</b> {qty} (SEBI Slices: {len(child_slices)})\n"
-            f"<b>Stop Loss:</b> {p_curr}{stop_loss:.2f} (-15%)\n"
-            f"<b>Target:</b> {p_curr}{target:.2f} (+30%)\n"
+            f"<b>Stop Loss:</b> {p_curr}{stop_loss:.2f}\n"
+            f"<b>Target:</b> {p_curr}{target:.2f}\n"
             f"<b>Time:</b> {now_str}"
         )
         send_telegram_alert(telegram_msg)
         print(f"\n[{now_str}] 📥 [TRADE ENTERED] {symbol} ({option_type}) | Stock Entry: {p_curr}{stock_price:.2f}")
 
-    def update_market_price(self, symbol, current_price):
+    def update_market_price(self, symbol, current_price, stock_price=None):
         """Update price for a SPECIFIC symbol's open position (multi-position aware)."""
         pos = self.positions.get(symbol)
         if pos is None:
@@ -463,6 +478,10 @@ class PaperBroker:
         # Determine trigger exit
         trigger_exit = False
         reason = ""
+        if stock_price is not None and pos.get("risk_model") == "ATR_SPOT_MAPPED_TO_SYNTHETIC_PREMIUM":
+            pos["last_stock_price"] = float(stock_price)
+            spot_change = float(stock_price) - float(pos.get("entry_stock_price", stock_price))
+            current_price = max(1.0, round(pos["entry_price"] + spot_change * 0.5, 2))
         if pos["type"] == "CALL":
             target_hit = current_price >= pos["target"]
             stop_hit = current_price <= pos["stop_loss"]

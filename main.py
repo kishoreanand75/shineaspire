@@ -19,7 +19,7 @@ if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 MAX_CONCURRENT_POSITIONS = 3
-RISK_PER_TRADE_PCT = 0.02  # risk 2% of capital per trade -> drives position sizing
+RISK_PER_TRADE_PCT = config.RISK_PER_TRADE_PCT
 BOT_LOCK_FILE = "paper_bot.lock"
 DASHBOARD_PROCESS = None
 
@@ -177,13 +177,10 @@ def run_bitcoin_bot():
             tracker_state = prediction_tracker.process_scan_results(all_results)
             signal_candle = best_trade.get("Candle_Time") if best_trade else None
             confidence = best_trade.get("Confidence") if best_trade else None
-            if best_trade and best_trade.get("Confidence_Source") == "PAPER_EXPERIMENTAL":
-                execution_threshold = config.PAPER_MIN_DIRECTIONAL_PROBABILITY
-            else:
-                execution_threshold = (
-                    config.PAPER_MIN_ACTIONABLE_CONFIDENCE
-                    if config.PAPER_TRADING_MODE else config.MIN_ACTIONABLE_CONFIDENCE
-                )
+            execution_threshold = (
+                config.PAPER_MIN_ACTIONABLE_CONFIDENCE
+                if config.PAPER_TRADING_MODE else config.MIN_ACTIONABLE_CONFIDENCE
+            )
             actionable = confidence is not None and float(confidence) >= execution_threshold
             inside_entry_window = 60 <= (time.time() % 300) < 240
             scheduled_mode = config.PAPER_TRADING_MODE and config.PAPER_SCHEDULED_TRADES_ENABLED
@@ -198,6 +195,9 @@ def run_bitcoin_bot():
                 trade_candidate is not None and best_trade is not None and actionable and inside_entry_window
                 and signal_candle != last_entry_candle and not broker.positions
             )
+            # Scheduled entries are intentionally disabled by default because
+            # they can turn HOLD/low-confidence predictions into trades.
+            scheduled_entry = scheduled_entry and actionable and signal_candle != last_entry_candle
             if (strategy_entry or scheduled_entry) and trade_candidate is not None:
                 signal = trade_candidate.get("Signal", "HOLD")
                 if signal == "BUY_CALL":
@@ -205,20 +205,15 @@ def run_bitcoin_bot():
                 elif signal == "BUY_PUT":
                     option_type = "PUT"
                 else:
-                    # Paper experiments need a direction even when the model
-                    # returns HOLD so every scheduled result can be evaluated.
-                    option_type = (
-                        "CALL"
-                        if float(trade_candidate.get("Candle_Close", trade_candidate["Price"]))
-                        >= float(trade_candidate.get("Candle_Open", trade_candidate["Price"]))
-                        else "PUT"
-                    )
+                    # Never manufacture a direction from candle colour.
+                    continue
                 slot_suffix = f"_{scheduled_slot}" if scheduled_entry else ""
                 premium = round(float(trade_candidate["Price"]) * 0.02, 2)
                 broker.buy_option(
                     symbol=f"BTCUSDT_OPT_{option_type}{slot_suffix}", option_type=option_type,
                     entry_price=premium, stock_price=float(trade_candidate["Price"]), qty=None,
-                    stop_loss_pct=0.15, target_pct=0.30,
+                    stop_loss_price=trade_candidate.get("Stop_Loss"),
+                    target_price=trade_candidate.get("Take_Profit"),
                     signal_confidence=trade_candidate.get("Confidence"),
                     signal_reason=trade_candidate.get("Signal_Reason", ""),
                     market_context=trade_candidate.get("Market_Context", {}),
@@ -235,7 +230,10 @@ def run_bitcoin_bot():
                     position["exit_candle_time"] = market.get("Candle_Time")
                     stock_change = float(market["Price"]) - float(position.get("entry_stock_price", market["Price"]))
                     premium_change = stock_change * 0.5 if position["type"] == "CALL" else -stock_change * 0.5
-                    broker.update_market_price(open_symbol, max(1.0, round(position["entry_price"] + premium_change, 2)))
+                    broker.update_market_price(
+                        open_symbol, max(1.0, round(position["entry_price"] + premium_change, 2)),
+                        stock_price=float(market["Price"]),
+                    )
                     if open_symbol in broker.positions:
                         position = broker.positions[open_symbol]
                         position["current_candle_time"] = market.get("Candle_Time", "")

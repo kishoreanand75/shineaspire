@@ -233,11 +233,11 @@ def check_kill_switch_status(consecutive_losses: int) -> dict:
             # Production Mode: Hard Shut-off for safety
             return {
                 "is_locked": True,
-                "min_confidence": 0.70,
+                "min_confidence": config.MIN_ACTIONABLE_CONFIDENCE,
                 "status_msg": "🛑 CONSECUTIVE LOSS KILL-SWITCH: Locked for today to protect capital."
             }
             
-    return {"is_locked": False, "min_confidence": 0.70, "status_msg": "NORMAL"}
+    return {"is_locked": False, "min_confidence": config.MIN_ACTIONABLE_CONFIDENCE, "status_msg": "NORMAL"}
 
 def evaluate_smart_breakout_signals(df: pd.DataFrame, asset_symbol: str) -> dict:
     """Smart ATR Volatility Expansion & Friction Filter Strategy Engine"""
@@ -591,7 +591,7 @@ def evaluate_soft_kill_switch_position_scaling(consecutive_losses: int):
         }
     return {
         "position_scale_factor": 1.00,
-        "min_ai_confidence": 0.70,
+        "min_ai_confidence": config.MIN_ACTIONABLE_CONFIDENCE,
         "required_adx": 25.0,
         "status": "NORMAL"
     }
@@ -718,7 +718,7 @@ def scan_all_crypto_radar_pairs(get_live_df_func, ai_model_tuple):
             signal, ai_score, reason, extra_metrics = evaluate_single_asset_signal(df, symbol, ai_model_tuple)
             
             # Catch high confidence breakout signals!
-            if signal in ['BUY_CALL', 'BUY_PUT'] and ai_score >= 0.70:
+            if signal in ['BUY_CALL', 'BUY_PUT'] and ai_score >= config.MIN_ACTIONABLE_CONFIDENCE:
                 if ai_score > best_ai_score:
                     best_ai_score = ai_score
                     best_pair = symbol
