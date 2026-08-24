@@ -5,6 +5,7 @@ import os
 import atexit
 import subprocess
 import sys
+import socket
 from multi_strategy import scan_all_assets
 from paper_broker import PaperBroker
 import prediction_tracker
@@ -20,6 +21,51 @@ if hasattr(sys.stderr, "reconfigure"):
 MAX_CONCURRENT_POSITIONS = 3
 RISK_PER_TRADE_PCT = 0.02  # risk 2% of capital per trade -> drives position sizing
 BOT_LOCK_FILE = "paper_bot.lock"
+DASHBOARD_PROCESS = None
+
+
+def start_dashboard():
+    """Start Streamlit once so the bot and dashboard use one command."""
+    global DASHBOARD_PROCESS
+    if os.getenv("DISABLE_AUTO_DASHBOARD") == "1":
+        print("[DASHBOARD] Automatic dashboard launch disabled by environment.")
+        return
+
+    dashboard_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dashboard.py")
+    if not os.path.exists(dashboard_path):
+        print(f"[DASHBOARD] File not found: {dashboard_path}")
+        return
+
+    try:
+        with socket.create_connection(("127.0.0.1", 8501), timeout=0.5):
+            print("[DASHBOARD] Streamlit is already running at http://localhost:8501")
+            return
+    except OSError:
+        pass
+
+    try:
+        DASHBOARD_PROCESS = subprocess.Popen(
+            [
+                sys.executable, "-m", "streamlit", "run", dashboard_path,
+                "--server.address", "127.0.0.1", "--server.port", "8501",
+                "--server.headless", "true",
+            ],
+            cwd=os.path.dirname(dashboard_path),
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        atexit.register(stop_dashboard)
+        print("[DASHBOARD] Started automatically at http://localhost:8501")
+    except (OSError, subprocess.SubprocessError) as exc:
+        print(f"[DASHBOARD] Automatic launch failed: {exc}")
+
+
+def stop_dashboard():
+    """Stop only the Streamlit process launched by this bot instance."""
+    global DASHBOARD_PROCESS
+    if DASHBOARD_PROCESS is not None and DASHBOARD_PROCESS.poll() is None:
+        DASHBOARD_PROCESS.terminate()
+        DASHBOARD_PROCESS = None
 
 
 def acquire_bot_lock():
@@ -95,18 +141,24 @@ def run_bitcoin_bot():
     if not acquire_bot_lock():
         print("[BOT LOCK] Another main.py instance is already running; exiting this duplicate.")
         return
+    start_dashboard()
     print("==========================================================")
     print("🚀 BITCOIN-ONLY ALGO BOT STARTED (Risk-Managed) 🚀")
     print("==========================================================")
 
     broker = PaperBroker(
         initial_capital=config.BTC_START_CAPITAL_USD,
-        max_concurrent_positions=1,
+        max_concurrent_positions=(
+            config.PAPER_SCHEDULED_MAX_CONCURRENT_POSITIONS
+            if config.PAPER_TRADING_MODE and config.PAPER_SCHEDULED_TRADES_ENABLED
+            else 1
+        ),
         risk_per_trade_pct=RISK_PER_TRADE_PCT,
     )
     print("📊 PAPER-ONLY MODE: simulated orders enabled; real-money orders disabled")
     prediction_tracker.ensure_csv()
     last_entry_candle = None
+    last_scheduled_slot = None
     while True:
         try:
             auto_trainer.training_finished()
@@ -134,22 +186,46 @@ def run_bitcoin_bot():
                 )
             actionable = confidence is not None and float(confidence) >= execution_threshold
             inside_entry_window = 60 <= (time.time() % 300) < 240
-            if (
-                best_trade is not None and actionable and inside_entry_window
+            scheduled_mode = config.PAPER_TRADING_MODE and config.PAPER_SCHEDULED_TRADES_ENABLED
+            interval_seconds = config.PAPER_SCHEDULED_INTERVAL_MINUTES * 60
+            scheduled_slot = int(time.time() // interval_seconds) if scheduled_mode else None
+            scheduled_entry = scheduled_mode and scheduled_slot != last_scheduled_slot
+            trade_candidate = best_trade or next(
+                (item for item in all_results if item.get("Symbol") == config.DEFAULT_SYMBOL),
+                None,
+            )
+            strategy_entry = (
+                trade_candidate is not None and best_trade is not None and actionable and inside_entry_window
                 and signal_candle != last_entry_candle and not broker.positions
-            ):
-                signal = best_trade["Signal"]
-                option_type = "CALL" if signal == "BUY_CALL" else "PUT"
-                premium = round(float(best_trade["Price"]) * 0.02, 2)
+            )
+            if (strategy_entry or scheduled_entry) and trade_candidate is not None:
+                signal = trade_candidate.get("Signal", "HOLD")
+                if signal == "BUY_CALL":
+                    option_type = "CALL"
+                elif signal == "BUY_PUT":
+                    option_type = "PUT"
+                else:
+                    # Paper experiments need a direction even when the model
+                    # returns HOLD so every scheduled result can be evaluated.
+                    option_type = (
+                        "CALL"
+                        if float(trade_candidate.get("Candle_Close", trade_candidate["Price"]))
+                        >= float(trade_candidate.get("Candle_Open", trade_candidate["Price"]))
+                        else "PUT"
+                    )
+                slot_suffix = f"_{scheduled_slot}" if scheduled_entry else ""
+                premium = round(float(trade_candidate["Price"]) * 0.02, 2)
                 broker.buy_option(
-                    symbol=f"BTCUSDT_OPT_{option_type}", option_type=option_type,
-                    entry_price=premium, stock_price=float(best_trade["Price"]), qty=None,
+                    symbol=f"BTCUSDT_OPT_{option_type}{slot_suffix}", option_type=option_type,
+                    entry_price=premium, stock_price=float(trade_candidate["Price"]), qty=None,
                     stop_loss_pct=0.15, target_pct=0.30,
-                    signal_confidence=best_trade.get("Confidence"),
-                    signal_reason=best_trade.get("Signal_Reason", ""),
-                    market_context=best_trade.get("Market_Context", {}),
+                    signal_confidence=trade_candidate.get("Confidence"),
+                    signal_reason=trade_candidate.get("Signal_Reason", ""),
+                    market_context=trade_candidate.get("Market_Context", {}),
                 )
                 last_entry_candle = signal_candle
+                if scheduled_entry:
+                    last_scheduled_slot = scheduled_slot
 
             for open_symbol, position in list(broker.positions.items()):
                 market = next((item for item in all_results if item.get("Symbol") == "BTCUSDT"), None)

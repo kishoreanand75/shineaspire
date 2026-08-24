@@ -1,7 +1,87 @@
 {
     "initial_capital": 20.0,
     "capital": 20.200000000000003,
-    "daily_trades_count": 4,
+    "daily_trades_count": 7,
     "daily_pnl": 0.2,
-    "positions": {}
+    "positions": {
+        "BTCUSDT_OPT_CALL_1986188": {
+            "trade_id": "20260824111149678826",
+            "entry_time": "2026-08-24 16:41:49",
+            "symbol": "BTCUSDT_OPT_CALL_1986188",
+            "type": "CALL",
+            "entry_price": 1553.88,
+            "entry_stock_price": 77694.01,
+            "target_stock_price": 78626.34,
+            "sl_stock_price": 77227.85,
+            "qty": 0.001733,
+            "slices": [
+                0.001733
+            ],
+            "stop_loss": 1320.8,
+            "initial_stop_loss": 1320.8,
+            "target": 2020.04,
+            "signal_confidence": 0.38,
+            "signal_reason": "SELL rejected: 1H HTF trend is BULLISH (model wanted PUT, confidence 0.38)",
+            "market_context": {
+                "rsi": 54.50480337925992,
+                "vwap_diff": 0.005150558580597151,
+                "body_ratio": 0.5854962285442534
+            },
+            "max_premium_seen": 1553.88,
+            "trailed_to_breakeven": false,
+            "last_stock_price": 77694.01
+        },
+        "BTCUSDT_OPT_CALL_1986189": {
+            "trade_id": "20260824111504821520",
+            "entry_time": "2026-08-24 16:45:04",
+            "symbol": "BTCUSDT_OPT_CALL_1986189",
+            "type": "CALL",
+            "entry_price": 1556.38,
+            "entry_stock_price": 77819.05,
+            "target_stock_price": 78752.88,
+            "sl_stock_price": 77352.14,
+            "qty": 0.001731,
+            "slices": [
+                0.001731
+            ],
+            "stop_loss": 1322.92,
+            "initial_stop_loss": 1322.92,
+            "target": 2023.29,
+            "signal_confidence": 0.385,
+            "signal_reason": "SELL rejected: 1H HTF trend is BULLISH (model wanted PUT, confidence 0.39)",
+            "market_context": {
+                "rsi": 59.61702343532256,
+                "vwap_diff": 0.006712779399426247,
+                "body_ratio": 0.7815625000000181
+            },
+            "max_premium_seen": 1556.38,
+            "trailed_to_breakeven": false
+        },
+        "BTCUSDT_OPT_CALL_5958567": {
+            "trade_id": "20260824111558748324",
+            "entry_time": "2026-08-24 16:45:58",
+            "symbol": "BTCUSDT_OPT_CALL_5958567",
+            "type": "CALL",
+            "entry_price": 1556.38,
+            "entry_stock_price": 77819.05,
+            "target_stock_price": 78752.88,
+            "sl_stock_price": 77352.14,
+            "qty": 0.001731,
+            "slices": [
+                0.001731
+            ],
+            "stop_loss": 1322.92,
+            "initial_stop_loss": 1322.92,
+            "target": 2023.29,
+            "signal_confidence": 0.385,
+            "signal_reason": "SELL rejected: 1H HTF trend is BULLISH (model wanted PUT, confidence 0.39)",
+            "market_context": {
+                "rsi": 59.61702343532256,
+                "vwap_diff": 0.006712779399426247,
+                "body_ratio": 0.7815625000000181
+            },
+            "max_premium_seen": 1556.38,
+            "trailed_to_breakeven": false
+        }
+    }
 }

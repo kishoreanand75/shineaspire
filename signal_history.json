@@ -835,5 +835,77 @@
     "confidence": 0.338,
     "reason": "Model confidence 0.34 below 0.60 threshold or predicted HOLD",
     "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T10:40:03.530170+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 10:35:00",
+    "signal": "HOLD",
+    "confidence": 0.327,
+    "reason": "Model confidence 0.33 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T10:45:04.055187+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 10:40:00",
+    "signal": "HOLD",
+    "confidence": 0.32,
+    "reason": "Model confidence 0.32 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T10:50:07.046018+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 10:45:00",
+    "signal": "HOLD",
+    "confidence": 0.332,
+    "reason": "Model confidence 0.33 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T10:55:04.723169+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 10:50:00",
+    "signal": "HOLD",
+    "confidence": 0.298,
+    "reason": "Model confidence 0.30 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T11:00:05.177882+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 10:55:00",
+    "signal": "HOLD",
+    "confidence": 0.313,
+    "reason": "Model confidence 0.31 below 0.60 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T11:05:06.389618+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 11:00:00",
+    "signal": "HOLD",
+    "confidence": 0.4,
+    "reason": "SELL rejected: 1H HTF trend is BULLISH (model wanted PUT, confidence 0.40)",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T11:10:06.697322+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 11:05:00",
+    "signal": "HOLD",
+    "confidence": 0.38,
+    "reason": "SELL rejected: 1H HTF trend is BULLISH (model wanted PUT, confidence 0.38)",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T11:15:04.786116+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 11:10:00",
+    "signal": "HOLD",
+    "confidence": 0.385,
+    "reason": "SELL rejected: 1H HTF trend is BULLISH (model wanted PUT, confidence 0.39)",
+    "htf_trend": "BULLISH"
   }
 ]

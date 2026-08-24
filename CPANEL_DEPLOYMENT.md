@@ -5,6 +5,8 @@ This project has two different runtime surfaces:
 - `passenger_wsgi.py` serves the live dashboard through cPanel Passenger.
 - `main.py` is a separate long-running paper-trading worker and must not be
   started by a web request.
+- In the default configuration, paper mode attempts one simulated entry per
+   5-minute slot and keeps the existing 20-minute exit/risk rules.
 
 ## Create the cPanel Python application
 
@@ -43,3 +45,7 @@ If the plan only supports Passenger web requests and ordinary cron jobs, the
 dashboard can be deployed, but the five-second paper-trading loop cannot be
 kept alive reliably on that plan. Use a VPS or a worker-capable service for
 that process.
+
+The dashboard only displays rows after the paper position exits. Allow at least
+20 to 25 minutes after starting `main.py` before expecting a new completed row
+in `trades.csv`.
