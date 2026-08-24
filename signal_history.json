@@ -1519,5 +1519,14 @@
     "confidence": 0.431,
     "reason": "Model confidence 0.43 below 0.60 threshold or predicted HOLD",
     "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-24T18:05:14.544388+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-24 18:00:00",
+    "signal": "HOLD",
+    "confidence": 0.412,
+    "reason": "Model confidence 0.41 below 0.55 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
   }
 ]

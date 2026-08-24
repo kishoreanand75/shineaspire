@@ -386,8 +386,10 @@ else:
     entry_text = f"${signal_entry_price:,.2f}"
     stop_text = f"${stop_price:,.2f}" if stop_price is not None else "N/A"
     target_text = f"${target_price:,.2f}" if target_price is not None else "N/A"
-    next_candle_start = current_candle_end
-    exit_text = (next_candle_start + timedelta(minutes=20)).strftime("%H:%M UTC") if signal_name != "HOLD" else "N/A"
+    # The forecast is made from the last closed candle and applies to the
+    # candle that is forming now, not the candle after it.
+    next_candle_start = current_candle_start
+    exit_text = display_time(next_candle_start + timedelta(minutes=20)) if signal_name != "HOLD" else "N/A"
     timing_text = f"Next candle starts in {seconds_to_close // 60:02d}:{seconds_to_close % 60:02d} · forecast uses completed candles only"
     active_positions = load_active_positions()
     memory_stats = trade_memory.recent_stats()
@@ -509,9 +511,11 @@ risk_budget = fixed_starting_capital * float(getattr(config, "RISK_PER_TRADE_PCT
 display_threshold = config.PAPER_MIN_ACTIONABLE_CONFIDENCE if config.PAPER_TRADING_MODE else config.MIN_ACTIONABLE_CONFIDENCE
 signal_direction = {"BUY_CALL": "CALL", "BUY_PUT": "PUT", "HOLD": "HOLD"}.get(signal_name, "HOLD")
 signal_status = "TRADE NEXT CANDLE" if decision_title == "TRADE NEXT CANDLE" else "WAIT"
+if signal_name == "HOLD" and confidence is not None:
+    signal_status = f"WAIT ({float(confidence):.1%} < {display_threshold:.0%})"
 current_row = {
-    "Time": signal_candle_time,
-    "Entry Time": display_time(next_candle_start) if signal_name != "HOLD" else "--",
+    "Time": f"Signal: {signal_candle_time}",
+    "Entry Time": display_time(next_candle_start),
     "Direction": signal_direction,
     "Win Probability": f"{float(confidence):.1%}" if confidence is not None else "--",
     "Entry": f"${signal_entry_price:,.2f}" if signal_name != "HOLD" else "--",

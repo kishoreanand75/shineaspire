@@ -355,6 +355,19 @@ class PaperBroker:
                         self.positions = {old_pos["symbol"]: old_pos}
                     else:
                         self.positions = {}
+                    stale_symbols = []
+                    for symbol, position in self.positions.items():
+                        confidence = position.get("signal_confidence")
+                        try:
+                            below_gate = confidence is not None and float(confidence) < config.PAPER_MIN_ACTIONABLE_CONFIDENCE
+                        except (TypeError, ValueError):
+                            below_gate = True
+                        if below_gate:
+                            stale_symbols.append(symbol)
+                    for symbol in stale_symbols:
+                        del self.positions[symbol]
+                    if stale_symbols:
+                        self._update_active_json()
             except:
                 pass
 
