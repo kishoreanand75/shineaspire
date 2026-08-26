@@ -1726,5 +1726,23 @@
     "confidence": null,
     "reason": "Body ratio 0.25 < 0.6 (weak/doji candle)",
     "htf_trend": "UNKNOWN"
+  },
+  {
+    "timestamp": "2026-08-26T06:50:50.586111+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-26 05:00:00",
+    "signal": "HOLD",
+    "confidence": 0.383,
+    "reason": "Model confidence 0.38 below 0.55 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
+  },
+  {
+    "timestamp": "2026-08-26T07:00:18.370518+00:00",
+    "symbol": "BTCUSDT",
+    "candle_time": "2026-08-26 06:00:00",
+    "signal": "HOLD",
+    "confidence": 0.504,
+    "reason": "Model confidence 0.50 below 0.55 threshold or predicted HOLD",
+    "htf_trend": "BULLISH"
   }
 ]

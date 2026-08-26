@@ -5,18 +5,23 @@ import json
 import os
 from datetime import datetime, timezone
 
+import config
 
-CSV_FILE = "prediction_outcomes.csv"
-PENDING_FILE = "pending_predictions.json"
+
+DATA_DIR = os.path.dirname(os.path.abspath(__file__))
+CSV_FILE = os.path.join(DATA_DIR, "prediction_outcomes.csv")
+PENDING_FILE = os.path.join(DATA_DIR, "pending_predictions.json")
 # Prediction outcomes use the same 20-minute evaluation window as the bot's
 # paper trade exit. A longer window leaves signals pending after their plan
 # has already expired.
-MAX_HOLD_MINUTES = 20
+MAX_HOLD_MINUTES = 5
+STATE_FILE = os.path.join(DATA_DIR, "live_state.json")
 FIELDS = [
     "Prediction_ID", "Signal_Date", "Signal_Time", "Candle_Time", "Symbol", "Direction",
     "Entry_Price", "Stop_Loss", "Take_Profit", "AI_Confidence", "PUT_Probability", "HOLD_Probability", "CALL_Probability", "HTF_Trend",
     "Signal_Reason", "Status", "Outcome", "Resolved_Date", "Resolved_Time",
     "Duration_Minutes", "Outcome_Reason", "Exit_Price",
+    "PnL", "Capital_Balance",
 ]
 
 
@@ -59,6 +64,26 @@ def _save_rows(rows):
         writer = csv.DictWriter(handle, fieldnames=FIELDS)
         writer.writeheader()
         writer.writerows({field: row.get(field, "") for field in FIELDS} for row in rows)
+
+
+def _update_capital(prediction_id, pnl):
+    """Apply one resolved prediction's P/L once to the paper balance."""
+    try:
+        with open(STATE_FILE, encoding="utf-8") as handle:
+            state = json.load(handle)
+    except (OSError, ValueError, TypeError, json.JSONDecodeError):
+        state = {}
+    applied_ids = state.get("prediction_pnl_ids", [])
+    if prediction_id in applied_ids:
+        return float(state.get("capital", config.BTC_START_CAPITAL_USD))
+    capital = float(state.get("capital", config.BTC_START_CAPITAL_USD))
+    capital += float(pnl)
+    state["initial_capital"] = float(state.get("initial_capital", config.BTC_START_CAPITAL_USD))
+    state["capital"] = round(capital, 2)
+    state["prediction_pnl_ids"] = (applied_ids + [prediction_id])[-5000:]
+    with open(STATE_FILE, "w", encoding="utf-8") as handle:
+        json.dump(state, handle, indent=2)
+    return state["capital"]
 
 
 def ensure_csv():
@@ -128,6 +153,17 @@ def process_scan_results(results):
             remaining.append(forecast)
             continue
 
+        stake = float(getattr(config, "PAPER_TRADE_AMOUNT_USD", 5.0))
+        risk_distance = abs(entry - stop)
+        if outcome == "WIN" and exit_price == target:
+            pnl = stake * abs(target - entry) / risk_distance if risk_distance else stake
+        elif outcome == "LOSS" and exit_price == stop:
+            pnl = -stake
+        else:
+            signed_move = (exit_price - entry) if direction == "BUY_CALL" else (entry - exit_price)
+            pnl = max(-stake, min(stake, stake * signed_move / risk_distance)) if risk_distance else 0.0
+        capital = _update_capital(forecast["prediction_id"], pnl)
+
         for row in rows:
             if row.get("Prediction_ID") == forecast["prediction_id"]:
                 row.update({
@@ -136,6 +172,7 @@ def process_scan_results(results):
                     "Resolved_Time": now.strftime("%H:%M:%S UTC"),
                     "Duration_Minutes": f"{(market_time - signal_time).total_seconds() / 60.0:.2f}",
                     "Outcome_Reason": reason, "Exit_Price": f"{exit_price:.4f}",
+                    "PnL": f"{pnl:.2f}", "Capital_Balance": f"{capital:.2f}",
                 })
 
     existing_keys = {

@@ -39,19 +39,24 @@ def maybe_retrain():
     state = _load_state()
     now = datetime.now(timezone.utc)
     last_started = _parse_datetime(state.get("last_started"))
-    if state.get("status") not in ("failed", "error") and last_started and (
-        now - last_started
-    ).total_seconds() < config.AUTO_RETRAIN_INTERVAL_HOURS * 3600:
+    retrying = state.get("status") in ("failed", "error")
+    wait_seconds = (
+        config.AUTO_RETRAIN_RETRY_MINUTES * 60
+        if retrying else config.AUTO_RETRAIN_INTERVAL_HOURS * 3600
+    )
+    if last_started and (now - last_started).total_seconds() < wait_seconds:
         return "waiting"
     try:
         log = open(LOG_FILE, "a", encoding="utf-8")
         environment = os.environ.copy()
         environment["PYTHONIOENCODING"] = "utf-8"
+        attempt = int(state.get("attempt", 0)) + 1
+        environment["TRAINING_SEED"] = str(41 + attempt)
         _process = subprocess.Popen(
             [sys.executable, "train_model.py"], stdout=log, stderr=subprocess.STDOUT,
             cwd=os.path.dirname(os.path.abspath(__file__)), env=environment,
         )
-        _save_state({"last_started": now.isoformat(), "status": "running", "pid": _process.pid})
+        _save_state({"last_started": now.isoformat(), "status": "running", "pid": _process.pid, "attempt": attempt})
         return "started"
     except OSError as exc:
         _save_state({"last_started": now.isoformat(), "status": "error", "error": str(exc)})

@@ -1,7 +1,5 @@
 {
-  "last_started": "2026-08-24T15:54:26.823364+00:00",
-  "status": "completed",
-  "pid": 50892,
-  "returncode": 0,
-  "model_updated_at": "2026-08-24T15:55:01.838510+00:00"
+  "last_started": "2026-08-26T07:34:25.004832+00:00",
+  "status": "running",
+  "pid": 8496
 }

@@ -43,6 +43,16 @@ def load_active_positions():
         return {}
 
 
+def load_current_capital(default_capital):
+    """Read the persisted paper balance, falling back to configured capital."""
+    try:
+        with open(Path(__file__).resolve().parent / "live_state.json", encoding="utf-8") as handle:
+            capital = float(json.load(handle).get("capital", default_capital))
+        return capital if pd.notna(capital) and capital >= 0 else default_capital
+    except (OSError, TypeError, ValueError, json.JSONDecodeError):
+        return default_capital
+
+
 def normalize_trade_rows(trades):
     """Repair rows written by the older date-inclusive CSV schema."""
     if trades.empty:
@@ -140,12 +150,29 @@ st_autorefresh(interval=5000, key="live_data_autorefresh")
 st.markdown("""
 <style>
     .stApp { background-color: #0B0E11; }
-    /* Keep the live terminal visually stable while Streamlit reruns. */
+    /* Keep the live terminal fully visible while Streamlit reruns. */
+    .stApp,
+    .stApp[aria-busy="true"],
     [data-testid="stAppViewContainer"],
-    [data-testid="stAppViewContainer"] > .main,
-    [data-testid="stAppViewContainer"] [data-testid="stMainBlockContainer"] {
+    [data-testid="stAppViewContainer"][aria-busy="true"] {
         opacity: 1 !important;
         filter: none !important;
+    }
+    [data-testid="stAppViewContainer"],
+    [data-testid="stAppViewContainer"] > .main,
+    [data-testid="stAppViewContainer"] [data-testid="stMainBlockContainer"],
+    [data-testid="stAppViewContainer"] [data-testid="stAppViewBlockContainer"],
+    [data-testid="stAppViewContainer"] > div[style*="opacity"],
+    [data-testid="stAppViewContainer"] > div[style*="filter"] {
+        opacity: 1 !important;
+        filter: none !important;
+    }
+    /* Streamlit fades individual blocks during each script rerun. */
+    [data-testid="stElementContainer"],
+    [data-testid="stCaptionContainer"],
+    div[data-testid="stCaptionContainer"],
+    [data-testid="stExpander"] summary {
+        opacity: 1 !important;
     }
     [data-testid="stStatusWidget"] { display: none !important; }
     section[data-testid="stSidebar"] { background-color: #10141A; border-right: 1px solid #1E2530; }
@@ -346,7 +373,7 @@ else:
             probabilities = multi_strategy.model.predict_proba(feature_values)[0]
             class_probabilities = {int(label): float(probability) for label, probability in zip(multi_strategy.model.classes_, probabilities)}
             probability_text = (
-                f"Next-candle probabilities: PUT {class_probabilities.get(0, 0.0):.1%} · "
+                f"Raw model class scores: PUT {class_probabilities.get(0, 0.0):.1%} · "
                 f"HOLD {class_probabilities.get(1, 0.0):.1%} · CALL {class_probabilities.get(2, 0.0):.1%}"
             )
         except Exception:
@@ -416,7 +443,7 @@ else:
     # The forecast is made from the last closed candle and applies to the
     # candle that is forming now, not the candle after it.
     next_candle_start = current_candle_start
-    exit_text = display_time(next_candle_start + timedelta(minutes=20))
+    exit_text = display_time(next_candle_start + timedelta(minutes=5))
     timing_text = f"Next candle starts in {seconds_to_close // 60:02d}:{seconds_to_close % 60:02d} · forecast uses completed candles only"
     active_positions = load_active_positions()
     memory_stats = trade_memory.recent_stats()
@@ -446,6 +473,28 @@ else:
     else:
         live_thought = "I am waiting for enough completed-candle evidence and a clear directional setup before suggesting a trade."
     live_thought += f" Last analysis update: {trade_now.strftime('%H:%M:%S UTC')}."
+
+    # Record the dashboard's actual allowed decision so history updates even
+    # when main.py is not running alongside Streamlit.
+    tracker_signal = signal_name if decision_title == "TRADE NEXT CANDLE" else "HOLD"
+    prediction_tracker.process_scan_results([{
+        "Symbol": config.DEFAULT_SYMBOL,
+        "Signal": tracker_signal,
+        "Candle_Time": str(signal_df.index[-2]),
+        "Candle_Open": float(signal_df.iloc[-2]["Open"]),
+        "Candle_High": float(signal_df.iloc[-2]["High"]),
+        "Candle_Low": float(signal_df.iloc[-2]["Low"]),
+        "Candle_Close": float(signal_df.iloc[-2]["Close"]),
+        "Entry_Price": signal_entry_price if tracker_signal != "HOLD" else None,
+        "Stop_Loss": stop_price if tracker_signal != "HOLD" else None,
+        "Take_Profit": target_price if tracker_signal != "HOLD" else None,
+        "Confidence": confidence,
+        "PUT_Probability": class_probabilities.get(0),
+        "HOLD_Probability": class_probabilities.get(1),
+        "CALL_Probability": class_probabilities.get(2),
+        "HTF_Trend": signal_result.get("htf_trend", "UNKNOWN"),
+        "Signal_Reason": decision_reason,
+    }])
 
     signal_col, analysis_col = st.columns([3, 2])
     with signal_col:
@@ -534,22 +583,30 @@ st.info(
 # ONE ACTIONABLE SIGNAL TABLE
 # ===============================================================================
 fixed_starting_capital = float(getattr(config, "BTC_START_CAPITAL_USD", 20.00))
-risk_budget = fixed_starting_capital * float(getattr(config, "RISK_PER_TRADE_PCT", 0.005))
+current_capital = load_current_capital(fixed_starting_capital)
+trade_amount = float(getattr(config, "PAPER_TRADE_AMOUNT_USD", 5.00))
+risk_budget = trade_amount
+planned_profit = trade_amount * (float(getattr(config, "ATR_TP_MULTIPLIER", 1.5)) / float(getattr(config, "ATR_SL_MULTIPLIER", 1.5)))
 display_threshold = config.PAPER_MIN_ACTIONABLE_CONFIDENCE if config.PAPER_TRADING_MODE else config.MIN_ACTIONABLE_CONFIDENCE
 signal_direction = {"BUY_CALL": "CALL", "BUY_PUT": "PUT", "HOLD": "HOLD"}.get(signal_name, "HOLD")
-signal_status = "TRADE NEXT CANDLE" if decision_title == "TRADE NEXT CANDLE" else "WAIT"
+trade_allowed = decision_title == "TRADE NEXT CANDLE"
+if not trade_allowed:
+    signal_direction = "HOLD"
+signal_status = "TRADE NEXT CANDLE" if trade_allowed else "DO NOT TRADE"
 if signal_name == "HOLD" and confidence is not None and not high_confidence_forecast:
     signal_status = f"WAIT ({float(confidence):.1%} < {display_threshold:.0%})"
 current_row = {
     "Time": f"NEXT: {display_time(next_candle_start)}",
     "Entry Time": display_time(next_candle_start),
     "Direction": signal_direction,
-    "Win Probability": f"{float(confidence):.1%}" if high_confidence_forecast else "--",
+            "Model Score (not win rate)": f"{float(confidence):.1%}" if confidence is not None else "--",
     "Entry": f"${signal_entry_price:,.2f}",
     "Stop Loss": f"${stop_price:,.2f}" if stop_price is not None else "--",
     "Target": f"${target_price:,.2f}" if target_price is not None else "--",
     "Exit By": exit_text,
-    "Amount to Risk": f"${risk_budget:,.2f}",
+    "Amount to Risk": f"${trade_amount:,.2f}",
+    "P/L After Result": f"WIN +${planned_profit:,.2f} / LOSS -${trade_amount:,.2f}",
+    "Capital After": f"${current_capital:,.2f}",
     "Status": signal_status,
 }
 
@@ -561,7 +618,7 @@ if active_positions:
             "Time": display_time(position.get("entry_candle_time") or position.get("entry_time")),
             "Entry Time": display_time(position.get("entry_time")),
             "Direction": position.get("type", "--"),
-            "Win Probability": (
+            "Model Score (not win rate)": (
                 f"{float(position['signal_confidence']):.1%}"
                 if position.get("signal_confidence") not in (None, "") else "--"
             ),
@@ -570,19 +627,21 @@ if active_positions:
             "Target": f"${float(position.get('target_stock_price', position.get('target', 0))):,.2f}",
             "Exit By": display_time(
                 pd.to_datetime(position.get("entry_time"), errors="coerce", utc=True)
-                + pd.Timedelta(minutes=20)
+                + pd.Timedelta(minutes=5)
             ),
-            "Amount to Risk": f"${risk_budget:,.2f}",
+            "Amount to Risk": f"${trade_amount:,.2f}",
+            "P/L After Result": f"WIN +${planned_profit:,.2f} / LOSS -${trade_amount:,.2f}",
+            "Capital After": f"${current_capital:,.2f}",
             "Status": "ACTIVE - WAIT FOR EXIT",
         })
     signal_rows = active_signal_rows + signal_rows
 
 st.markdown("<div class='sec-label'>NEXT CANDLE SIGNAL</div>", unsafe_allow_html=True)
 st.caption(
-    f"One row is the current recommendation. Amount to Risk = ${fixed_starting_capital:,.2f} capital × "
-    f"{config.RISK_PER_TRADE_PCT:.2%} risk per trade = ${risk_budget:,.2f} maximum planned loss. "
+    f"Current paper capital: ${current_capital:,.2f}. Planned trade amount / maximum loss: ${trade_amount:,.2f}. "
+    f"Planned profit at the configured {config.ATR_TP_MULTIPLIER / config.ATR_SL_MULTIPLIER:.1f}:1 target-risk ratio: ${planned_profit:,.2f}. "
     f"Only {display_threshold:.0%}+ directional signals can become TRADE NEXT CANDLE. "
-    "Confidence is a model score, not a guaranteed win rate. All times are IST."
+    "Model Score is not a guaranteed win probability. Actual outcome is checked after the 5-minute window. All times are IST."
 )
 
 signal_display = pd.DataFrame(signal_rows)
@@ -593,9 +652,10 @@ st.dataframe(
     key=f"next_signal_table_{signal_candle_time}_{signal_direction}",
 )
 
-with st.expander("Recent trade outcomes", expanded=False):
+with st.expander("Recent prediction and trade outcomes", expanded=False):
     history_rows = []
-    prediction_path = Path(prediction_tracker.CSV_FILE)
+    data_dir = Path(__file__).resolve().parent
+    prediction_path = data_dir / prediction_tracker.CSV_FILE
     if prediction_path.exists() and prediction_path.stat().st_size:
         try:
             history_df = pd.read_csv(prediction_path, dtype=str)
@@ -607,36 +667,64 @@ with st.expander("Recent trade outcomes", expanded=False):
             )
             for _, row in history_df.iterrows():
                 direction = str(row.get("Direction", "")).strip()
-                if direction not in {"BUY_CALL", "BUY_PUT"}:
-                    continue
-
-                try:
-                    entry_value = float(row.get("Entry_Price", ""))
-                    stop_value = float(row.get("Stop_Loss", ""))
-                    target_value = float(row.get("Take_Profit", ""))
-                except (TypeError, ValueError):
-                    continue
-                if pd.isna(entry_value) or pd.isna(stop_value) or pd.isna(target_value):
+                if direction not in {"BUY_CALL", "BUY_PUT", "HOLD"}:
                     continue
 
                 confidence_value = pd.to_numeric(row.get("AI_Confidence"), errors="coerce")
                 outcome = str(row.get("Outcome") or row.get("Status") or "").upper()
-                if outcome not in {"WIN", "LOSS", "PENDING"}:
+                if outcome not in {"WIN", "LOSS", "PENDING", "NO_SIGNAL"}:
                     continue
+
+                entry_value = pd.to_numeric(row.get("Entry_Price"), errors="coerce")
+                stop_value = pd.to_numeric(row.get("Stop_Loss"), errors="coerce")
+                target_value = pd.to_numeric(row.get("Take_Profit"), errors="coerce")
 
                 history_rows.append({
                     "Time": display_time(row.get("Candle_Time")),
                     "Entry Time": "Completed",
-                    "Direction": "CALL" if direction == "BUY_CALL" else "PUT",
-                    "Win Probability": f"{confidence_value:.1%}" if pd.notna(confidence_value) else "--",
-                    "Entry": f"${entry_value:,.2f}",
-                    "Stop Loss": f"${stop_value:,.2f}",
-                    "Target": f"${target_value:,.2f}",
+                    "Direction": {"BUY_CALL": "CALL", "BUY_PUT": "PUT"}.get(direction, "HOLD"),
+                    "Model Score (not win rate)": f"{confidence_value:.1%}" if pd.notna(confidence_value) else "--",
+                    "Entry": f"${entry_value:,.2f}" if pd.notna(entry_value) else "--",
+                    "Stop Loss": f"${stop_value:,.2f}" if pd.notna(stop_value) else "--",
+                    "Target": f"${target_value:,.2f}" if pd.notna(target_value) else "--",
                     "Exit By": display_time(
                         f"{row.get('Resolved_Date', '')}T{row.get('Resolved_Time', '')}"
                     ) if row.get("Resolved_Date") and row.get("Resolved_Time") else "Pending",
-                    "Amount to Risk": f"${risk_budget:,.2f}",
+                    "Amount to Risk": f"${trade_amount:,.2f}",
+                    "P/L After Result": (
+                        f"${float(row.get('PnL')):+.2f}"
+                        if pd.notna(pd.to_numeric(row.get("PnL"), errors="coerce"))
+                        else f"WIN +${planned_profit:,.2f} / LOSS -${trade_amount:,.2f}"
+                    ),
+                    "Capital After": (
+                        f"${float(row.get('Capital_Balance')):,.2f}"
+                        if pd.notna(pd.to_numeric(row.get("Capital_Balance"), errors="coerce"))
+                        else "Pending"
+                    ),
                     "Status": outcome,
+                })
+        except (OSError, ValueError, TypeError, pd.errors.EmptyDataError, pd.errors.ParserError):
+            pass
+
+    trades_path = data_dir / "trades.csv"
+    if trades_path.exists() and trades_path.stat().st_size:
+        try:
+            trades_df = pd.read_csv(trades_path, dtype=str).tail(100)
+            for _, row in trades_df.iloc[::-1].iterrows():
+                confidence_value = pd.to_numeric(row.get("AI_Confidence"), errors="coerce")
+                history_rows.append({
+                    "Time": display_time(row.get("Exit_Time")),
+                    "Entry Time": display_time(row.get("Entry_Time")),
+                    "Direction": str(row.get("Direction", "--")),
+                    "Model Score (not win rate)": f"{confidence_value:.1%}" if pd.notna(confidence_value) else "--",
+                    "Entry": f"${float(row['Entry_Price']):,.2f}" if pd.notna(pd.to_numeric(row.get("Entry_Price"), errors="coerce")) else "--",
+                    "Stop Loss": f"${float(row['Stop_Loss']):,.2f}" if pd.notna(pd.to_numeric(row.get("Stop_Loss"), errors="coerce")) else "--",
+                    "Target": f"${float(row['Take_Profit']):,.2f}" if pd.notna(pd.to_numeric(row.get("Take_Profit"), errors="coerce")) else "--",
+                    "Exit By": display_time(row.get("Exit_Time")),
+                    "Amount to Risk": f"${trade_amount:,.2f}",
+                    "P/L After Result": row.get("Net_PnL", "--"),
+                    "Capital After": row.get("Capital_Balance", "--"),
+                    "Status": str(row.get("Outcome", "--")).upper(),
                 })
         except (OSError, ValueError, TypeError, pd.errors.EmptyDataError, pd.errors.ParserError):
             pass
@@ -659,8 +747,10 @@ st.sidebar.markdown("---")
 st.sidebar.info("**Market:** BITCOIN (BTC/USDT)")
 st.sidebar.info("**Symbol:** BTCUSDT")
 
-starting_capital = fixed_starting_capital
-st.sidebar.metric("Fixed BTC Paper Capital", f"${starting_capital:,.2f}")
+starting_capital = current_capital
+st.sidebar.metric("Current BTC Paper Capital", f"${starting_capital:,.2f}")
+st.sidebar.metric("Planned Trade Amount", f"${trade_amount:,.2f}")
+st.sidebar.caption(f"Planned max loss: ${trade_amount:,.2f} · planned profit at target: ${planned_profit:,.2f}")
 memory_stats = trade_memory.recent_stats()
 st.sidebar.caption(
     f"Trade memory: {memory_stats['trades']} stored · "

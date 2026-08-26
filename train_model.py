@@ -1,4 +1,5 @@
 # train_model.py - Retrained to match multi_strategy.py feature set EXACTLY (fixes feature_names mismatch)
+import os
 import pandas as pd
 import numpy as np
 import ta
@@ -249,7 +250,7 @@ def train_institutional_ai():
         n_estimators=150,
         max_depth=5,
         learning_rate=0.03,
-        random_state=42,
+        random_state=int(os.getenv("TRAINING_SEED", "42")),
         eval_metric='mlogloss'
     )
     model.fit(X_train, y_train, sample_weight=sample_weight)
@@ -262,18 +263,30 @@ def train_institutional_ai():
                         average="weighted", zero_division=0)
         if directional_mask.any() else 0.0
     )
+    test_probabilities = model.predict_proba(X_test)
+    predicted_confidence = test_probabilities.max(axis=1)
+    directional_confidence = (
+        float(predicted_confidence[directional_mask].mean())
+        if directional_mask.any() else 0.0
+    )
     print(f"\n✅ Training Complete! Test Accuracy: {accuracy*100:.2f}%")
-    print(f"Directional precision (CALL/PUT only): {directional_precision*100:.2f}%")
+    print(f"Directional win rate (CALL/PUT predictions): {directional_precision*100:.2f}%")
+    print(f"Average confidence on directional predictions: {directional_confidence*100:.2f}%")
     print("\nPer-class precision/recall (0=PUT, 1=HOLD, 2=CALL):")
     print(classification_report(y_test, y_pred, target_names=["PUT", "HOLD", "CALL"], zero_division=0))
     print("⚠️  Note: accuracy alone doesn't tell you if this is profitable - check backtester.py metrics too.")
     print("⚠️  What matters most: precision on CALL and PUT (when the model DOES fire a")
     print("    signal, how often is it right) -- not overall accuracy, which HOLD dominates.\n")
 
-    if directional_precision < config.MIN_VALIDATED_DIRECTIONAL_PRECISION:
+    if directional_precision < config.MIN_VALIDATED_WIN_RATE:
         raise RuntimeError(
-            f"Model rejected: directional precision {directional_precision:.2%} is below "
-            f"the required {config.MIN_VALIDATED_DIRECTIONAL_PRECISION:.2%}."
+            f"Model rejected: directional win rate {directional_precision:.2%} is below "
+            f"the required {config.MIN_VALIDATED_WIN_RATE:.2%}."
+        )
+    if directional_confidence < config.MIN_VALIDATED_CONFIDENCE:
+        raise RuntimeError(
+            f"Model rejected: average directional confidence {directional_confidence:.2%} is below "
+            f"the required {config.MIN_VALIDATED_CONFIDENCE:.2%}."
         )
 
     model.save_model("xgboost_model.json")

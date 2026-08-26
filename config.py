@@ -7,8 +7,9 @@ import os
 PRIMARY_MODE = "BTC_SPOT"
 DEFAULT_SYMBOL = "BTCUSDT"
 BTC_START_CAPITAL_USD = 20.00
-TIMEFRAME = "1h"
-TRADE_TIMEFRAME = "1h"
+PAPER_TRADE_AMOUNT_USD = 5.00       # Planned stake and maximum loss for each paper trade
+TIMEFRAME = "5m"
+TRADE_TIMEFRAME = "5m"
 SUPPORTED_TIMEFRAMES = ("1m", "5m", "15m", "1h", "4h", "1d")
 
 # --- RISK KILL-SWITCH & LIVE-TRADING READINESS GATE ---
@@ -33,10 +34,13 @@ PAPER_SCHEDULED_MAX_CONCURRENT_POSITIONS = 4
 MIN_PAPER_PROFIT_FACTOR = 1.0      # Paper execution requires a positive validated edge
 MAX_PAPER_DRAWDOWN_PCT = 15.0      # Paper execution is blocked beyond this drawdown
 MIN_VALIDATED_DIRECTIONAL_PRECISION = 0.55  # Never deploy a model below 55% CALL/PUT precision
+MIN_VALIDATED_WIN_RATE = 0.55          # Candidate directional outcomes must be 55%+ correct
+MIN_VALIDATED_CONFIDENCE = 0.55        # Candidate's average fired-signal confidence must be 55%+
 BINANCE_TAKER_FEE = 0.00075        # Standard Binance spot taker fee per side
 ALLOW_UNVALIDATED_PAPER_TRADING = True  # Collect paper evidence before real-mode review
 AUTO_RETRAIN_ENABLED = True             # Retrain the paper model in the background
 AUTO_RETRAIN_INTERVAL_HOURS = 24
+AUTO_RETRAIN_RETRY_MINUTES = 5         # Retry rejected candidates without waiting a full day
 
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
 TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
